@@ -25,9 +25,9 @@ if (plate) {
   });
 }
 
-const wl = document.querySelector("[data-waitlist]");
-const done = document.querySelector("[data-waitlist-done]");
-if (wl && done) {
+for (const box of document.querySelectorAll("[data-wl]")) {
+  const wl = box.querySelector("[data-wl-form]");
+  const done = box.querySelector("[data-wl-done]");
   const msg = wl.querySelector(".wl-msg");
   const btn = wl.querySelector('button[type="submit"]');
   const say = (text, bad) => {
@@ -56,7 +56,7 @@ if (wl && done) {
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.ok) throw new Error(data.error || "Something went wrong. Please try again.");
-      done.querySelector("[data-waitlist-email]").textContent = email;
+      done.querySelector("[data-wl-email]").textContent = email;
       wl.hidden = true;
       done.hidden = false;
       done.focus();
@@ -85,32 +85,6 @@ if (wl && done) {
       /* closed the share sheet */
     }
   });
-}
-
-// Key-date dials fill once, when they come into view.
-const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const C = 2 * Math.PI * 42;
-const rings = [...document.querySelectorAll(".dial .value")];
-const fill = (ring, frac) => {
-  ring.style.strokeDasharray = `${C * frac} ${C}`;
-};
-rings.forEach((r) => {
-  fill(r, reduce ? Number(r.dataset.frac) : 0);
-  if (!reduce) r.style.transition = "stroke-dasharray 1.4s cubic-bezier(0.32, 0.72, 0, 1)";
-});
-if (!reduce && "IntersectionObserver" in window) {
-  const io = new IntersectionObserver(
-    (entries) => {
-      if (!entries.some((e) => e.isIntersecting)) return;
-      rings.forEach((r, i) => setTimeout(() => fill(r, Number(r.dataset.frac)), i * 120));
-      io.disconnect();
-    },
-    { threshold: 0.4 },
-  );
-  const dials = document.querySelector(".dials");
-  if (dials) io.observe(dials);
-} else {
-  rings.forEach((r) => fill(r, Number(r.dataset.frac)));
 }
 
 const year = document.querySelector("[data-year]");
