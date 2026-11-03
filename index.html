@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action https://app.liveryclub.com"
+      content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self'; connect-src 'self' https://imdoayrrwunixcybqaai.supabase.co; base-uri 'self'; form-action 'self'"
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <title>Livery: the digital garage for UK drivers</title>
     <meta
       name="description"
-      content="Livery keeps your car's MOT, tax and insurance dates, service history, paperwork, modifications and running costs in one private place. Free for UK drivers."
+      content="Coming soon: Livery keeps your car's MOT, tax and insurance dates, service history, paperwork, modifications and running costs in one private place. Join the waitlist for early access."
     />
     <link rel="canonical" href="https://liveryclub.com/" />
     <meta name="theme-color" content="#f2ede5" media="(prefers-color-scheme: light)" />
@@ -81,7 +81,7 @@
           <a href="#next">What's next</a>
           <a href="#faq">FAQ</a>
         </nav>
-        <a class="btn btn-primary" href="https://app.liveryclub.com/auth">Open Livery</a>
+        <a class="btn btn-primary" href="#waitlist">Join the waitlist</a>
       </div>
     </header>
 
@@ -89,36 +89,67 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="wrap">
           <div>
+            <p class="soon"><span class="soon-dot" aria-hidden="true"></span>Coming soon · Early access by invite</p>
             <h1 id="hero-title">Every car. Every detail. One place.</h1>
             <p class="lede">
               Livery is a private digital garage for UK drivers. Add your car with its registration
               and keep its key dates, service history, paperwork, mods and running costs together,
               ready whenever you need them.
             </p>
-            <form
-              class="plate-form"
-              action="https://app.liveryclub.com/auth"
-              method="get"
-              data-plate
-            >
+            <form class="waitlist" id="waitlist" data-waitlist novalidate>
+              <p class="wl-title">Join the waitlist and be first in.</p>
               <label class="plate">
                 <span class="plate-band" aria-hidden="true">UK</span>
                 <input
-                  name="reg"
-                  aria-label="Your registration number"
+                  name="car"
+                  aria-label="Your registration number (optional)"
                   placeholder="YOUR REG"
                   maxlength="8"
                   autocomplete="off"
                   autocapitalize="characters"
                   spellcheck="false"
                   inputmode="text"
+                  data-plate-input
                 />
               </label>
-              <button class="btn btn-primary" type="submit">Add my car</button>
+              <p class="wl-hint">Optional: we'll have your car ready when your invite arrives.</p>
+              <div class="wl-row">
+                <input
+                  class="wl-email"
+                  type="email"
+                  name="email"
+                  required
+                  autocomplete="email"
+                  placeholder="Your email address"
+                  aria-label="Your email address"
+                />
+                <button class="btn btn-primary" type="submit">Join the waitlist</button>
+              </div>
+              <div class="hp" aria-hidden="true">
+                <label>Company <input name="company" tabindex="-1" autocomplete="off" /></label>
+              </div>
+              <label class="consent">
+                <input type="checkbox" name="consent" required />
+                <span>
+                  I'd like to join the Livery waitlist and get emails about early access and the
+                  launch. I can unsubscribe at any time. See our
+                  <a href="https://app.liveryclub.com/privacy">Privacy Policy</a>.
+                </span>
+              </label>
+              <p class="wl-msg" role="status" aria-live="polite"></p>
             </form>
-            <p class="plate-note">
-              Free. Works in your browser today, with iPhone and Android apps coming soon.
-            </p>
+            <div class="wl-done" data-waitlist-done hidden tabindex="-1">
+              <p class="wl-done-title">You're on the list.</p>
+              <p>
+                We'll email <strong data-waitlist-email>you</strong> when your invite is ready.
+                Invites go out in batches, so tell a friend who loves their car.
+              </p>
+              <div class="share">
+                <button class="btn btn-primary" type="button" data-share>Share Livery</button>
+                <a class="btn btn-quiet" data-share-whatsapp href="https://wa.me/?text=" rel="noopener" target="_blank">WhatsApp</a>
+                <a class="btn btn-quiet" data-share-x href="https://x.com/intent/post?text=" rel="noopener" target="_blank">X</a>
+              </div>
+            </div>
           </div>
 
           <div class="hero-visual">
@@ -559,12 +590,12 @@
           <div class="roadmap-head">
             <h2 id="next-title">What's coming to Livery.</h2>
             <p class="lede">
-              Livery is growing. Here's what's available today and what we're building next.
+              Here's what Livery opens with, and what we're building next.
             </p>
           </div>
           <ol class="timeline">
             <li class="stage">
-              <div class="stage-head">Today <span class="tag">Available</span></div>
+              <div class="stage-head">At launch <span class="tag">Ready</span></div>
               <ul>
                 <li>
                   <h3>Your digital garage</h3>
@@ -634,9 +665,23 @@
             <details>
               <summary>Is Livery free?</summary>
               <p>
-                Yes, Livery is free to use today. In future we plan to offer optional paid plans
+                Yes, Livery will be free to use. In future we plan to offer optional paid plans
                 with extras, such as full history checks for cars you're thinking of buying. We'll
                 always tell you before anything changes.
+              </p>
+            </details>
+            <details>
+              <summary>When can I start using Livery?</summary>
+              <p>
+                Soon. We're opening Livery in batches, starting with people on the waitlist. Join
+                with your email and we'll send your invite as soon as there's a place for you.
+              </p>
+            </details>
+            <details>
+              <summary>What will you do with my email?</summary>
+              <p>
+                Only email you about early access and the launch. We never sell it, and you can
+                unsubscribe at any time from any email or by writing to privacy@liveryclub.com.
               </p>
             </details>
             <details>
@@ -649,8 +694,8 @@
             <details>
               <summary>Is there an app?</summary>
               <p>
-                Livery works in any browser on your phone, tablet or computer, and you can add it to
-                your home screen. Apps for iPhone and Android are coming soon.
+                Livery will work in any browser on your phone, tablet or computer, with apps for
+                iPhone and Android. Waitlist members hear first when each one opens.
               </p>
             </details>
             <details>
@@ -682,12 +727,10 @@
       <section class="closing" aria-labelledby="closing-title">
         <div class="wrap">
           <h2 id="closing-title">Give your car the history it deserves.</h2>
-          <p class="lede">Start with your registration. It takes about a minute.</p>
+          <p class="lede">Livery opens soon. Join the waitlist and you'll be first in.</p>
           <div class="actions">
-            <a class="btn btn-primary" href="https://app.liveryclub.com/auth?mode=signup"
-              >Create your free garage</a
-            >
-            <a class="btn btn-quiet" href="https://app.liveryclub.com/auth">Sign in</a>
+            <a class="btn btn-primary" href="#waitlist">Join the waitlist</a>
+            <a class="btn btn-quiet" href="https://app.liveryclub.com/auth">Have an invite? Sign in</a>
           </div>
           <div class="stores" aria-label="Phone apps">
             <div class="store">
@@ -738,7 +781,8 @@
           <div class="footer-links">
             <div>
               <h4>Livery</h4>
-              <a href="https://app.liveryclub.com/auth">Open Livery</a>
+              <a href="#waitlist">Join the waitlist</a>
+              <a href="https://app.liveryclub.com/auth">Sign in (invited)</a>
               <a href="#features">Features</a>
               <a href="#next">What's next</a>
               <a href="#faq">FAQ</a>

@@ -356,6 +356,148 @@ p {
   color: var(--muted);
 }
 
+/* Coming soon + waitlist */
+.soon {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 22px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font: 600 13px/1 var(--display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.soon-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--moss);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--moss) 60%, transparent);
+  animation: soon-pulse 2.4s var(--ease) infinite;
+}
+@keyframes soon-pulse {
+  70% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .soon-dot {
+    animation: none;
+  }
+}
+.waitlist {
+  margin-top: 30px;
+  display: grid;
+  gap: 12px;
+  max-width: 520px;
+}
+.wl-title {
+  margin: 0 0 4px;
+  font: 600 18px/1.3 var(--sans);
+  color: var(--text);
+}
+.wl-hint {
+  margin: -4px 0 4px;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+.wl-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.wl-email {
+  flex: 1 1 240px;
+  min-width: 0;
+  min-height: 56px;
+  padding: 0 20px;
+  border-radius: 999px;
+  border: 0;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1.5px var(--line);
+  color: var(--text);
+  font: 400 16px/1 var(--sans);
+  outline: none;
+}
+.wl-email::placeholder {
+  color: var(--muted);
+}
+.wl-email:focus {
+  box-shadow:
+    inset 0 0 0 1.5px var(--accent),
+    0 0 0 4px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+.wl-row .btn {
+  min-height: 56px;
+}
+.consent {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--muted);
+  cursor: pointer;
+}
+.consent input {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--leather);
+}
+.consent a {
+  color: var(--accent);
+}
+.wl-msg {
+  min-height: 1.4em;
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+.wl-msg.bad {
+  color: var(--brick);
+}
+.hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.wl-done {
+  margin-top: 30px;
+  max-width: 520px;
+  padding: 24px;
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  outline: none;
+}
+.wl-done[hidden],
+.waitlist[hidden] {
+  display: none;
+}
+.wl-done .wl-done-title {
+  margin: 0 0 8px;
+  font: 500 30px/1.1 var(--serif);
+  color: var(--text);
+}
+.wl-done p {
+  margin: 0;
+  color: var(--muted);
+}
+.share {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 /* Phone frame */
 .phone {
   position: relative;
@@ -980,4 +1122,10 @@ p {
 }
 .lost .lede {
   margin: 16px auto 28px;
+}
+
+@media (max-width: 520px) {
+  .wl-row .btn {
+    flex: 1 1 100%;
+  }
 }
