@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action https://app.liveryclub.com"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>Livery: the digital garage for UK drivers</title>
+    <meta
+      name="description"
+      content="Livery keeps your car's MOT, tax and insurance dates, service history, paperwork, modifications and running costs in one private place. Free for UK drivers."
+    />
+    <link rel="canonical" href="https://liveryclub.com/" />
+    <meta name="theme-color" content="#f2ede5" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1c1814" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Livery" />
+    <meta property="og:title" content="Livery: every car, every detail, one place" />
+    <meta
+      property="og:description"
+      content="The private digital garage for UK drivers. Key dates, service history, paperwork, mods and costs together."
+    />
+    <meta property="og:url" content="https://liveryclub.com/" />
+    <meta property="og:image" content="https://liveryclub.com/assets/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preload" href="/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin />
+    <link
+      rel="preload"
+      href="/fonts/instrument-sans.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Livery",
+        "applicationCategory": "LifestyleApplication",
+        "operatingSystem": "Web, iOS, Android",
+        "url": "https://liveryclub.com/",
+        "description": "The private digital garage for UK drivers.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Chakraborty Group LTD",
+          "email": "hello@liveryclub.com"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/" aria-label="Livery home">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <rect width="100" height="100" rx="23" fill="#F2EDE5" />
+            <g fill="none" stroke-linecap="round">
+              <path d="M27 15 V44 A33 33 0 0 0 60 77 H88" stroke="#2A231E" stroke-width="10" />
+              <path d="M40 15 V44 A20 20 0 0 0 60 64 H88" stroke="#8E5E3B" stroke-width="6" />
+              <path d="M50 15 V44 A10 10 0 0 0 60 54 H88" stroke="#4F5A43" stroke-width="3" />
+            </g>
+          </svg>
+          Livery
+        </a>
+        <nav class="nav" aria-label="Main">
+          <a href="#features">Features</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#next">What's next</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <a class="btn btn-primary" href="https://app.liveryclub.com/auth">Open Livery</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="wrap">
+          <div>
+            <h1 id="hero-title">Every car. Every detail. One place.</h1>
+            <p class="lede">
+              Livery is a private digital garage for UK drivers. Add your car with its registration
+              and keep its key dates, service history, paperwork, mods and running costs together,
+              ready whenever you need them.
+            </p>
+            <form
+              class="plate-form"
+              action="https://app.liveryclub.com/auth"
+              method="get"
+              data-plate
+            >
+              <label class="plate">
+                <span class="plate-band" aria-hidden="true">UK</span>
+                <input
+                  name="reg"
+                  aria-label="Your registration number"
+                  placeholder="YOUR REG"
+                  maxlength="8"
+                  autocomplete="off"
+                  autocapitalize="characters"
+                  spellcheck="false"
+                  inputmode="text"
+                />
+              </label>
+              <button class="btn btn-primary" type="submit">Add my car</button>
+            </form>
+            <p class="plate-note">
+              Free. Works in your browser today, with iPhone and Android apps coming soon.
+            </p>
+          </div>
+
+          <div class="hero-visual">
+            <svg
+              class="stripes"
+              viewBox="0 0 640 760"
+              preserveAspectRatio="xMidYMid meet"
+              aria-hidden="true"
+            >
+              <path
+                class="s1"
+                pathLength="1"
+                stroke-width="30"
+                d="M60 -40 V470 A250 250 0 0 0 310 720 H900"
+              />
+              <path
+                class="s2"
+                pathLength="1"
+                stroke-width="18"
+                d="M122 -40 V470 A188 188 0 0 0 310 658 H900"
+              />
+              <path
+                class="s3"
+                pathLength="1"
+                stroke-width="9"
+                d="M170 -40 V470 A140 140 0 0 0 310 610 H900"
+              />
+            </svg>
+            <div class="phone">
+              <img
+                src="/assets/screens/car.webp"
+                width="780"
+                height="1688"
+                alt="A Volkswagen Golf GTI in Livery, showing its plate, MOT, tax, insurance and service dials"
+                fetchpriority="high"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dates" aria-labelledby="dates-title">
+        <div class="wrap">
+          <div>
+            <h2 id="dates-title">Know what's due before it's due.</h2>
+            <p class="lede">
+              Livery checks your MOT and tax with the DVSA and DVLA, then shows every key date on
+              one screen, coloured by how soon it's coming up. Add insurance, servicing, warranty
+              and breakdown cover, and set reminders for anything else.
+            </p>
+          </div>
+          <ul class="dials" aria-label="Example key dates">
+            <li class="dial">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <circle class="track" cx="50" cy="50" r="42" fill="none" stroke-width="7" />
+                <circle
+                  class="value late"
+                  cx="50"
+                  cy="50"
+                  r="42"
+                  fill="none"
+                  stroke-width="7"
+                  data-frac="1"
+                />
+                <text x="50" y="52" text-anchor="middle" font-size="30" class="late">3</text>
+                <text x="50" y="70" text-anchor="middle" font-size="10" class="unit late">
+                  days late
+                </text>
+              </svg>
+              <strong>Insurance</strong>
+              <span>Renew today</span>
+            </li>
+            <li class="dial">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <circle class="track" cx="50" cy="50" r="42" fill="none" stroke-width="7" />
+                <circle
+                  class="value soon"
+                  cx="50"
+                  cy="50"
+                  r="42"
+                  fill="none"
+                  stroke-width="7"
+                  data-frac="0.12"
+                />
+                <text x="50" y="52" text-anchor="middle" font-size="30">21</text>
+                <text x="50" y="70" text-anchor="middle" font-size="10" class="unit soon">
+                  days
+                </text>
+              </svg>
+              <strong>Road tax</strong>
+              <span>Due 24 Nov</span>
+            </li>
+            <li class="dial">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <circle class="track" cx="50" cy="50" r="42" fill="none" stroke-width="7" />
+                <circle
+                  class="value ok"
+                  cx="50"
+                  cy="50"
+                  r="42"
+                  fill="none"
+                  stroke-width="7"
+                  data-frac="0.18"
+                />
+                <text x="50" y="52" text-anchor="middle" font-size="30">2</text>
+                <text x="50" y="70" text-anchor="middle" font-size="10" class="unit ok">
+                  months
+                </text>
+              </svg>
+              <strong>MOT</strong>
+              <span>Checked with DVSA</span>
+            </li>
+            <li class="dial">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <circle class="track" cx="50" cy="50" r="42" fill="none" stroke-width="7" />
+                <circle
+                  class="value ok"
+                  cx="50"
+                  cy="50"
+                  r="42"
+                  fill="none"
+                  stroke-width="7"
+                  data-frac="0.42"
+                />
+                <text x="50" y="52" text-anchor="middle" font-size="30">5</text>
+                <text x="50" y="70" text-anchor="middle" font-size="10" class="unit ok">
+                  months
+                </text>
+              </svg>
+              <strong>Service</strong>
+              <span>Or 6,200 miles</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="chapters" id="features" aria-labelledby="features-title">
+        <div class="wrap">
+          <div class="chapters-intro">
+            <h2 id="features-title">Built for people who care about their cars.</h2>
+            <p class="lede">
+              From the daily driver to the weekend car, Livery keeps the whole story: what's been
+              done, what it cost, what's next and where the paperwork is.
+            </p>
+          </div>
+
+          <div class="chapter-list">
+            <article class="chapter">
+              <div class="chapter-copy">
+                <h3>A proper home for every car</h3>
+                <p>
+                  Each car gets its own page with its photo, plate and every date that matters. Log
+                  work, add a reminder, record an expense or upload photos with one tap.
+                </p>
+                <ul>
+                  <li>Cover photo and photo gallery</li>
+                  <li>Full MOT history, including advisories</li>
+                  <li>Mileage tracked over time</li>
+                </ul>
+              </div>
+              <div class="chapter-visual">
+                <div class="phone">
+                  <img
+                    src="/assets/screens/garage.webp"
+                    width="780"
+                    height="1688"
+                    loading="lazy"
+                    alt="The garage screen with a car card showing an overdue insurance warning"
+                  />
+                </div>
+              </div>
+            </article>
+
+            <article class="chapter">
+              <div class="chapter-copy">
+                <h3>Log work in seconds</h3>
+                <p>
+                  Each kind of job asks the right questions. A service records what was changed, a
+                  repair splits parts and labour, an MOT keeps its advisories and a detail notes the
+                  coating and how long it lasts.
+                </p>
+                <ul>
+                  <li>Attach invoices and photos to any entry</li>
+                  <li>Logging a service moves the next one on</li>
+                  <li>A complete, searchable history file</li>
+                </ul>
+              </div>
+              <div class="chapter-visual">
+                <div class="phone">
+                  <img
+                    src="/assets/screens/logwork.webp"
+                    width="780"
+                    height="1688"
+                    loading="lazy"
+                    alt="Logging a full service, with engine oil, oil filter, air filter and spark plugs selected"
+                  />
+                </div>
+              </div>
+            </article>
+
+            <article class="chapter">
+              <div class="chapter-copy">
+                <h3>Your build, measured</h3>
+                <p>
+                  Track every modification with its cost and gains. Livery adds them to your car's
+                  factory figures to show power, torque, power-to-weight and what each extra bhp has
+                  cost you.
+                </p>
+                <ul>
+                  <li>bhp, PS or kW, and lb ft or Nm</li>
+                  <li>Planned mods show where the build is heading</li>
+                  <li>Mark gains as dyno-measured or estimated</li>
+                </ul>
+              </div>
+              <div class="chapter-visual">
+                <div class="phone">
+                  <img
+                    src="/assets/screens/mods.webp"
+                    width="780"
+                    height="1688"
+                    loading="lazy"
+                    alt="Performance card showing 311 bhp and 358 lb ft, up 29 and 31 percent on stock"
+                  />
+                </div>
+              </div>
+            </article>
+
+            <article class="chapter">
+              <div class="chapter-copy">
+                <h3>The full spec sheet</h3>
+                <p>
+                  Engine, drivetrain, performance, economy, dimensions and weights, laid out as a
+                  spec sheet you'll actually enjoy reading.
+                </p>
+                <ul>
+                  <li>Looked up once from the registration</li>
+                  <li>Factory power and torque filled in for you</li>
+                  <li>Drivetrain diagram for front, rear or all-wheel drive</li>
+                </ul>
+              </div>
+              <div class="chapter-visual">
+                <div class="phone">
+                  <img
+                    src="/assets/screens/specs.webp"
+                    width="780"
+                    height="1688"
+                    loading="lazy"
+                    alt="Spec sheet cards for performance, engine, drivetrain, economy and weight"
+                  />
+                </div>
+              </div>
+            </article>
+
+            <article class="chapter">
+              <div class="chapter-copy">
+                <h3>See what it really costs</h3>
+                <p>
+                  Fuel, insurance, parts, servicing and mods add up. Livery totals them by year and
+                  by category, and works out your cost per mile.
+                </p>
+                <ul>
+                  <li>Spending by category at a glance</li>
+                  <li>Export everything to a spreadsheet</li>
+                  <li>Purchase price kept separate from running costs</li>
+                </ul>
+              </div>
+              <div class="chapter-visual">
+                <div class="phone">
+                  <img
+                    src="/assets/screens/costs.webp"
+                    width="780"
+                    height="1688"
+                    loading="lazy"
+                    alt="Costs screen showing £2,946 this year and 18p per mile"
+                  />
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="extras" aria-labelledby="extras-title">
+        <div class="wrap">
+          <h2 id="extras-title">And the details that make it easy.</h2>
+          <div class="extras-grid">
+            <div class="extra">
+              <h3>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+                  <path d="M14 3v5h5M9 13h6M9 17h4" />
+                </svg>
+                Paperwork that fits
+              </h3>
+              <p>
+                Big scans shrink on your phone before they upload, so a 22 MB V5C becomes about 2 MB
+                and still reads perfectly.
+              </p>
+            </div>
+            <div class="extra">
+              <h3>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" />
+                  <path d="M9 12l2 2 4-4" />
+                </svg>
+                MOT history built in
+              </h3>
+              <p>Every MOT result, mileage and advisory from the DVSA, kept with the car.</p>
+            </div>
+            <div class="extra">
+              <h3>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M3 12h4l3-8 4 16 3-8h4" />
+                </svg>
+                The whole story
+              </h3>
+              <p>
+                Services, repairs, restorations, detailing and road trips in one timeline, ready to
+                show a buyer.
+              </p>
+            </div>
+            <div class="extra">
+              <h3>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="7" width="18" height="10" rx="3" />
+                  <circle cx="7.5" cy="17" r="1.5" />
+                  <circle cx="16.5" cy="17" r="1.5" />
+                </svg>
+                Every car you own
+              </h3>
+              <p>Keep the daily, the project and the weekend car side by side in one garage.</p>
+            </div>
+            <div class="extra">
+              <h3>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+                </svg>
+                Light or dark
+              </h3>
+              <p>
+                Follows your phone's appearance, with a calmer reduced-motion setting if you prefer
+                it.
+              </p>
+            </div>
+            <div class="extra">
+              <h3>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" />
+                </svg>
+                Yours to keep
+              </h3>
+              <p>Download everything you've stored at any time, in a file you can take anywhere.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="privacy" id="privacy" aria-labelledby="privacy-title">
+        <div class="wrap">
+          <div>
+            <h2 id="privacy-title">Private by design.</h2>
+            <p class="lede">
+              Your garage belongs to you. Livery has no adverts, no tracking and nothing to sell.
+              <a href="https://app.liveryclub.com/privacy">Read the privacy policy</a>.
+            </p>
+          </div>
+          <dl>
+            <div>
+              <dt>Stored in the UK</dt>
+              <dd>Your data lives on servers in London, encrypted in transit and at rest.</dd>
+            </div>
+            <div>
+              <dt>Only you can see it</dt>
+              <dd>
+                Each account can only reach its own records and files. The database enforces that,
+                not just the app.
+              </dd>
+            </div>
+            <div>
+              <dt>No adverts or tracking</dt>
+              <dd>No advertising, no analytics cookies, and we never sell your data.</dd>
+            </div>
+            <div>
+              <dt>Take it or delete it</dt>
+              <dd>
+                Download a copy of everything, or delete your account and all of it, whenever you
+                like.
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="roadmap" id="next" aria-labelledby="next-title">
+        <div class="wrap">
+          <div class="roadmap-head">
+            <h2 id="next-title">What's coming to Livery.</h2>
+            <p class="lede">
+              Livery is growing. Here's what's available today and what we're building next.
+            </p>
+          </div>
+          <ol class="timeline">
+            <li class="stage">
+              <div class="stage-head">Today <span class="tag">Available</span></div>
+              <ul>
+                <li>
+                  <h3>Your digital garage</h3>
+                  <p>
+                    Key dates, reminders, the history file, documents, photos, mods, spec sheets and
+                    costs, on the web.
+                  </p>
+                </li>
+                <li>
+                  <h3>Lookups by registration</h3>
+                  <p>Make, model, MOT and tax from the DVSA and DVLA, with the full spec sheet.</p>
+                </li>
+              </ul>
+            </li>
+            <li class="stage">
+              <div class="stage-head">Next <span class="tag">In progress</span></div>
+              <ul>
+                <li>
+                  <h3>iPhone and Android apps</h3>
+                  <p>Livery on your home screen, with Sign in with Apple.</p>
+                </li>
+                <li>
+                  <h3>Notifications and email reminders</h3>
+                  <p>A nudge before your MOT, tax, insurance or service is due.</p>
+                </li>
+              </ul>
+            </li>
+            <li class="stage">
+              <div class="stage-head">Later <span class="tag">Planned</span></div>
+              <ul>
+                <li>
+                  <h3>Buying a car? check</h3>
+                  <p>
+                    A full history check before you buy, including finance, theft and write-off
+                    records.
+                  </p>
+                </li>
+                <li>
+                  <h3>Share and hand over</h3>
+                  <p>
+                    Pass a car's full history to its next owner, or share a printable history
+                    report.
+                  </p>
+                </li>
+                <li>
+                  <h3>Livery Plus and Collector</h3>
+                  <p>Optional paid plans with extras for enthusiasts and larger collections.</p>
+                </li>
+                <li>
+                  <h3>A marketplace</h3>
+                  <p>Buy and sell cars that come with their Livery history.</p>
+                </li>
+              </ul>
+            </li>
+          </ol>
+          <p class="roadmap-note">
+            Plans can change as we learn what drivers need, so features and timings aren't
+            guaranteed.
+          </p>
+        </div>
+      </section>
+
+      <section class="faq" id="faq" aria-labelledby="faq-title">
+        <div class="wrap">
+          <h2 id="faq-title">Questions, answered.</h2>
+          <div>
+            <details>
+              <summary>Is Livery free?</summary>
+              <p>
+                Yes, Livery is free to use today. In future we plan to offer optional paid plans
+                with extras, such as full history checks for cars you're thinking of buying. We'll
+                always tell you before anything changes.
+              </p>
+            </details>
+            <details>
+              <summary>What do I need to get started?</summary>
+              <p>
+                Just your registration. Livery looks up your car's details, MOT and tax for
+                UK-registered vehicles. You can also add any car by entering its details yourself.
+              </p>
+            </details>
+            <details>
+              <summary>Is there an app?</summary>
+              <p>
+                Livery works in any browser on your phone, tablet or computer, and you can add it to
+                your home screen. Apps for iPhone and Android are coming soon.
+              </p>
+            </details>
+            <details>
+              <summary>Will Livery remind me when things are due?</summary>
+              <p>
+                Livery shows every key date with how long is left and keeps reminders in the app.
+                Notifications and email reminders are coming soon. Livery is there to help, but
+                you're still responsible for keeping your MOT, tax and insurance valid.
+              </p>
+            </details>
+            <details>
+              <summary>Where is my data stored?</summary>
+              <p>
+                On servers in London, UK, encrypted in transit and at rest. Only you can see your
+                garage, and we never sell your data.
+              </p>
+            </details>
+            <details>
+              <summary>Can I delete my account?</summary>
+              <p>
+                Yes. Go to Account and choose Delete account to erase your garage, records, photos
+                and documents straight away. You can download a copy of your data first.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing" aria-labelledby="closing-title">
+        <div class="wrap">
+          <h2 id="closing-title">Give your car the history it deserves.</h2>
+          <p class="lede">Start with your registration. It takes about a minute.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://app.liveryclub.com/auth?mode=signup"
+              >Create your free garage</a
+            >
+            <a class="btn btn-quiet" href="https://app.liveryclub.com/auth">Sign in</a>
+          </div>
+          <div class="stores" aria-label="Phone apps">
+            <div class="store">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <rect x="6" y="2" width="12" height="20" rx="3" />
+                <path d="M10.5 18.5h3" />
+              </svg>
+              <span><strong>iPhone app</strong>Coming soon</span>
+            </div>
+            <div class="store">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <rect x="6" y="2" width="12" height="20" rx="3" />
+                <path d="M10.5 18.5h3" />
+              </svg>
+              <span><strong>Android app</strong>Coming soon</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-top">
+          <a class="brand" href="/" aria-label="Livery home">
+            <svg viewBox="0 0 100 100" aria-hidden="true">
+              <rect width="100" height="100" rx="23" fill="#F2EDE5" />
+              <g fill="none" stroke-linecap="round">
+                <path d="M27 15 V44 A33 33 0 0 0 60 77 H88" stroke="#2A231E" stroke-width="10" />
+                <path d="M40 15 V44 A20 20 0 0 0 60 64 H88" stroke="#8E5E3B" stroke-width="6" />
+                <path d="M50 15 V44 A10 10 0 0 0 60 54 H88" stroke="#4F5A43" stroke-width="3" />
+              </g>
+            </svg>
+            Livery
+          </a>
+          <div class="footer-links">
+            <div>
+              <h4>Livery</h4>
+              <a href="https://app.liveryclub.com/auth">Open Livery</a>
+              <a href="#features">Features</a>
+              <a href="#next">What's next</a>
+              <a href="#faq">FAQ</a>
+            </div>
+            <div>
+              <h4>Contact</h4>
+              <a href="mailto:hello@liveryclub.com">hello@liveryclub.com</a>
+              <a href="mailto:support@liveryclub.com">support@liveryclub.com</a>
+              <a href="mailto:privacy@liveryclub.com">privacy@liveryclub.com</a>
+            </div>
+            <div>
+              <h4>Legal</h4>
+              <a href="https://app.liveryclub.com/terms">Terms of Service</a>
+              <a href="https://app.liveryclub.com/privacy">Privacy Policy</a>
+              <a href="https://app.liveryclub.com/cookies">Cookie Policy</a>
+            </div>
+          </div>
+        </div>
+        <p class="footer-legal">
+          © <span data-year>2026</span> Chakraborty Group LTD. Livery is operated by Chakraborty
+          Group LTD, a company registered in England and Wales with company number 17166586.
+          Registered office: Office 18572, 182-184 High Street North, East Ham, London, E6 2JA.
+          Vehicle data comes from the DVSA, the DVLA and Check Car Details. Contains public sector
+          information licensed under the Open Government Licence v3.0. Livery is not affiliated with
+          the DVSA, the DVLA or any vehicle manufacturer.
+        </p>
+      </div>
+    </footer>
+
+    <script src="/main.js" defer></script>
+  </body>
+</html>
