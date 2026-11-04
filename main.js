@@ -49,6 +49,7 @@ for (const box of document.querySelectorAll("[data-wl]")) {
         body: JSON.stringify({
           email,
           car: String(f.get("car") || "").replace(/\s/g, "") || undefined,
+          first_name: String(f.get("first_name") || "").trim() || undefined,
           consent: true,
           company: String(f.get("company") || ""),
           source: new URLSearchParams(location.search).get("ref") || "liveryclub.com",

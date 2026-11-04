@@ -423,6 +423,9 @@ p {
   font: 400 16px/1 var(--sans);
   outline: none;
 }
+.wl-name {
+  flex: 0 1 200px;
+}
 .wl-email::placeholder {
   color: var(--muted);
 }
@@ -1126,6 +1129,9 @@ p {
 
 @media (max-width: 520px) {
   .wl-row .btn {
+    flex: 1 1 100%;
+  }
+  .wl-name {
     flex: 1 1 100%;
   }
 }
