@@ -171,12 +171,16 @@
           </svg>
           Livery
         </a>
-        <nav class="nav" aria-label="Main">
-          <a href="#features">Features</a>
-          <a href="#expect">What to expect</a>
-          <a href="#faq">FAQ</a>
+        <nav class="nav" id="site-nav" aria-label="Main">
+          <a href="/#features">Features</a>
+          <a href="/guides/">Guides</a>
+          <a href="/#expect">What to expect</a>
+          <a href="/#faq">FAQ</a>
         </nav>
-        <a class="btn btn-primary" href="#waitlist">Join the waitlist</a>
+        <a class="btn btn-primary" href="/#waitlist">Join the waitlist</a>
+        <button class="menu-btn" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu" data-menu-btn>
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </header>
 
@@ -602,9 +606,10 @@
           <div class="footer-links">
             <div>
               <h4>Livery</h4>
-              <a href="#features">Features</a>
-              <a href="#expect">What to expect</a>
-              <a href="#faq">Questions</a>
+              <a href="/#features">Features</a>
+              <a href="/guides/">Guides</a>
+              <a href="/#expect">What to expect</a>
+              <a href="/#faq">Questions</a>
               <a href="https://app.liveryclub.com/auth">Sign in (invited)</a>
             </div>
             <div>
@@ -627,6 +632,7 @@
       </div>
     </footer>
 
+    <script src="/nav.js" defer></script>
     <script src="/main.js" defer></script>
   </body>
 </html>

@@ -7,6 +7,7 @@ Livery is made by Chakraborty Group LTD in the UK. Data is stored on servers in 
 ## Key pages
 
 - [Livery home and waitlist](https://liveryclub.com/): what Livery does, frequently asked questions and the waitlist sign-up.
+- [Guide: how to check your car's MOT history](https://liveryclub.com/guides/check-mot-history/): checking MOT history for free, what dangerous, major, minor and advisory items mean, and what to look for when buying.
 - [Privacy Policy](https://app.liveryclub.com/privacy): what data Livery collects and why.
 - [Terms of Service](https://app.liveryclub.com/terms)
 - [Cookie Policy](https://app.liveryclub.com/cookies)

@@ -1,11 +1,5 @@
 // Livery — liveryclub.com
 
-// Header hairline once the page scrolls.
-const header = document.querySelector(".site-header");
-const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 8);
-onScroll();
-window.addEventListener("scroll", onScroll, { passive: true });
-
 // Waitlist (Livery is invite-only until launch). Posts to the "waitlist" edge
 // function in Livery's Supabase project; it answers { ok: true } either way.
 const WAITLIST_URL = "https://imdoayrrwunixcybqaai.supabase.co/functions/v1/waitlist";
