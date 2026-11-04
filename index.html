@@ -21,6 +21,7 @@
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Livery" />
+    <meta property="og:locale" content="en_GB" />
     <meta property="og:title" content="Livery: every car, every detail, one place" />
     <meta
       property="og:description"
@@ -42,21 +43,112 @@
     />
     <link rel="stylesheet" href="/style.css" />
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Livery",
-        "applicationCategory": "LifestyleApplication",
-        "operatingSystem": "Web, iOS, Android",
-        "url": "https://liveryclub.com/",
-        "description": "The private digital garage for UK drivers.",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
-        "publisher": {
-          "@type": "Organization",
-          "name": "Chakraborty Group LTD",
-          "email": "hello@liveryclub.com"
-        }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://liveryclub.com/#org",
+      "name": "Livery",
+      "legalName": "Chakraborty Group LTD",
+      "url": "https://liveryclub.com/",
+      "logo": "https://liveryclub.com/assets/icon-192.png",
+      "email": "hello@liveryclub.com",
+      "areaServed": "GB"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://liveryclub.com/#website",
+      "name": "Livery",
+      "url": "https://liveryclub.com/",
+      "inLanguage": "en-GB",
+      "publisher": {
+        "@id": "https://liveryclub.com/#org"
       }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://liveryclub.com/#app",
+      "name": "Livery",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "url": "https://liveryclub.com/",
+      "inLanguage": "en-GB",
+      "description": "Livery is a private digital garage for car owners in the UK. Add a car by its registration and keep its MOT, tax, insurance and service dates, service history, paperwork, modifications and running costs in one place, with reminders before things are due.",
+      "featureList": [
+        "Add a car by its UK registration",
+        "MOT, tax, insurance and service date reminders",
+        "Service and repair history file",
+        "Modification tracking with power gains",
+        "Running costs and cost per mile",
+        "Secure document and photo storage"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "GBP",
+        "availability": "https://schema.org/PreOrder"
+      },
+      "publisher": {
+        "@id": "https://liveryclub.com/#org"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://liveryclub.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "When can I start using Livery?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Soon. We're opening in batches, starting with people on the waitlist. Join with your email and we'll send your invite as soon as there's a place for you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Livery free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Livery will be free to use. Later we may add optional extras for enthusiasts, and we'll always tell you before anything changes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What will you do with my email?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only email you about early access and the launch. We never sell it, and you can unsubscribe from any email at any time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which cars can I add?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Any car registered in the UK, by its plate. You can also add any car by entering its details yourself."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is my data kept?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On secure servers in London, encrypted in transit and at rest. Only you can see your garage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I delete my account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Delete it from your account settings and your garage, records, photos and documents are erased straight away. You can download a copy first."
+          }
+        }
+      ]
+    }
+  ]
+}
     </script>
   </head>
   <body>

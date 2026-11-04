@@ -1,0 +1,16 @@
+# Livery
+
+> Livery is a private digital garage for car owners in the UK. You add a car by its registration and Livery keeps everything about owning it in one place: MOT, tax, insurance and service dates with reminders, a service and repair history file, modifications and their power gains, running costs down to the cost per mile, and documents and photos. It is coming soon, opening by invite to people on the waitlist, and will be free to use.
+
+Livery is made by Chakraborty Group LTD in the UK. Data is stored on servers in London, each account can only see its own garage, and accounts can be deleted at any time.
+
+## Key pages
+
+- [Livery home and waitlist](https://liveryclub.com/): what Livery does, frequently asked questions and the waitlist sign-up.
+- [Privacy Policy](https://app.liveryclub.com/privacy): what data Livery collects and why.
+- [Terms of Service](https://app.liveryclub.com/terms)
+- [Cookie Policy](https://app.liveryclub.com/cookies)
+
+## Contact
+
+- hello@liveryclub.com
