@@ -2168,3 +2168,37 @@ p {
 .price .from[hidden] {
   display: none;
 }
+
+/* The Monthly / Annual switch sits inside the Plus card, next to its price. */
+.plan .billing {
+  display: flex;
+  margin-top: 20px;
+}
+.plan .billing button {
+  flex: 1;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 12px;
+}
+.billing-free {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  margin-top: 20px;
+  border-radius: 999px;
+  background: var(--sand);
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 600;
+}
+.save {
+  white-space: nowrap;
+}
+@media (max-width: 420px) {
+  .plan .billing button {
+    gap: 6px;
+    padding: 0 8px;
+    font-size: 14px;
+  }
+}
