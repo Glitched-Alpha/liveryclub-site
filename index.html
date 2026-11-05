@@ -11,7 +11,7 @@
     <title>Livery: the car ownership app for MOT, service history &amp; costs</title>
     <meta
       name="description"
-      content="Car ownership, organised. Livery keeps your MOT, tax and insurance dates, service history, mods and running costs in one private place. Join the waitlist."
+      content="Car ownership, organised. Livery keeps your MOT, tax and insurance dates, service history, mods and running costs in one private place. Free, with Plus for receipt scanning, MPG and more."
     />
     <link rel="canonical" href="https://liveryclub.com/" />
     <meta name="theme-color" content="#f2ede5" media="(prefers-color-scheme: light)" />
@@ -85,14 +85,37 @@
         "Service and repair history file",
         "Modification tracking with power gains",
         "Running costs and cost per mile",
-        "Secure document and photo storage"
+        "Secure document and photo storage",
+        "Receipt scanning (Plus)",
+        "Fuel economy and MPG tracking (Plus)",
+        "MOT advisory tracker (Plus)",
+        "Clean air zone and ULEZ check (Plus)",
+        "Business mileage log at HMRC rates (Plus)",
+        "Shared garage for family and partners (Plus)"
       ],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "GBP",
-        "availability": "https://schema.org/PreOrder"
-      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Livery Free",
+          "price": "0",
+          "priceCurrency": "GBP",
+          "availability": "https://schema.org/PreOrder"
+        },
+        {
+          "@type": "Offer",
+          "name": "Livery Plus, monthly",
+          "price": "5.99",
+          "priceCurrency": "GBP",
+          "availability": "https://schema.org/PreOrder"
+        },
+        {
+          "@type": "Offer",
+          "name": "Livery Plus, annual",
+          "price": "49.99",
+          "priceCurrency": "GBP",
+          "availability": "https://schema.org/PreOrder"
+        }
+      ],
       "publisher": {
         "@id": "https://liveryclub.com/#org"
       }
@@ -114,7 +137,23 @@
           "name": "Is Livery free?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, Livery will be free to use. Later we may add optional extras for enthusiasts, and we'll always tell you before anything changes."
+            "text": "Yes. Livery Free covers up to two cars with MOT and tax lookups, key date countdowns, reminders, service history, mods, running costs and documents, for as long as you like. Livery Plus adds receipt scanning, fuel and MPG tracking, the MOT advisory tracker, clean air zone checks, a business mileage log and shared garages for £5.99 a month or £49.99 a year."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the early access price?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "People who join through the waitlist get Plus for £39.99 a year instead of £49.99. While Livery is in early access, everything in Plus is free to use."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I cancel Plus?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, whenever you like. Your cars and records stay in your garage; you just go back to the Free features."
           }
         },
         {
@@ -173,6 +212,8 @@
         </a>
         <nav class="nav" id="site-nav" aria-label="Main">
           <a href="/#features">Features</a>
+          <a href="/#plus">Plus</a>
+          <a href="/#pricing">Pricing</a>
           <a href="/guides/">Guides</a>
           <a href="/#expect">What to expect</a>
           <a href="/#faq">FAQ</a>
@@ -493,6 +534,245 @@
         </div>
       </section>
 
+      <section class="plus" id="plus" aria-labelledby="plus-title">
+        <div class="wrap">
+          <div class="plus-intro">
+            <p class="eyebrow-pill"><span class="plus-mark" aria-hidden="true">+</span>Livery Plus</p>
+            <h2 id="plus-title">For drivers who want their car to look after itself.</h2>
+            <p class="lede">Plus does the tedious bits for you: reads your receipts, watches your fuel economy, chases your MOT advisories, checks clean air zones, logs your work miles and keeps everyone who drives the car in step.</p>
+          </div>
+
+          <div class="plus-grid">
+            <article class="pf">
+              <div class="pf-mock" aria-hidden="true">
+                <div class="mock-receipt">
+                  <div class="rc-paper">
+                    <span class="rc-line w60"></span><span class="rc-line w40"></span>
+                    <span class="rc-line w80"></span><span class="rc-line w50"></span>
+                    <span class="rc-total">£62.50</span>
+                  </div>
+                  <span class="rc-arrow"></span>
+                  <dl class="rc-fields">
+                    <div><dt>Total</dt><dd>£62.50</dd></div>
+                    <div><dt>Litres</dt><dd>43.8 L</dd></div>
+                    <div><dt>Where</dt><dd>BP</dd></div>
+                    <div><dt>Date</dt><dd>27 Oct</dd></div>
+                  </dl>
+                </div>
+              </div>
+              <h3>Receipt scanning</h3>
+              <p class="pf-what">Photograph a receipt and Livery fills in the amount, litres, date, station and mileage for you. Check it, tap save, and the receipt is filed with the car.</p>
+              <p class="pf-why"><strong>How it helps:</strong> no typing at the pump, no shoebox of faded receipts, and every pound accounted for when you sell or do your tax return.</p>
+            </article>
+
+            <article class="pf">
+              <div class="pf-mock" aria-hidden="true">
+                <div class="mock-mpg">
+                  <div class="mpg-figs"><span><b>39.1</b> mpg average</span><span><b>£0.17</b> per mile</span></div>
+                  <svg viewBox="0 0 200 60" preserveAspectRatio="none"><polyline points="0,22 40,20 80,18 120,21 160,19 200,48" /></svg>
+                  <p class="mpg-warn">Last tank 21% down on usual</p>
+                </div>
+              </div>
+              <h3>Fuel &amp; MPG tracking</h3>
+              <p class="pf-what">Log fills as you go and see your real-world MPG, fuel cost per mile and price per litre, tank by tank, on a simple chart.</p>
+              <p class="pf-why"><strong>How it helps:</strong> Livery flags a sudden drop in economy, often the first sign of soft tyres, a dragging brake or a tired sensor, before it costs you at the pump or the garage.</p>
+            </article>
+
+            <article class="pf">
+              <div class="pf-mock" aria-hidden="true">
+                <div class="mock-adv">
+                  <div class="adv-row"><span class="adv-tag">Advisory</span><span>Front brake discs worn</span><span class="adv-rep">On your last 2 MOTs</span><span class="adv-btn">Mark fixed</span></div>
+                  <div class="adv-row done"><span class="adv-tick"></span><span>Exhaust minor leak</span></div>
+                </div>
+              </div>
+              <h3>MOT advisory tracker</h3>
+              <p class="pf-what">The advisories from your last MOT become a to-do list. Mark each one fixed or not needed, and see which ones keep coming back.</p>
+              <p class="pf-why"><strong>How it helps:</strong> today's advisory is next year's fail. Sort them before your MOT, and every fix lands in your service history as proof for the next buyer.</p>
+            </article>
+
+            <article class="pf">
+              <div class="pf-mock" aria-hidden="true">
+                <div class="mock-caz">
+                  <span class="caz-chip">No charge</span>
+                  <ul>
+                    <li><span>London ULEZ</span><span>£12.50 a day</span></li>
+                    <li><span>Birmingham</span><span>£8 a day</span></li>
+                    <li><span>Bristol</span><span>£9 a day</span></li>
+                    <li><span>Glasgow, Edinburgh…</span><span>£60 fine</span></li>
+                  </ul>
+                </div>
+              </div>
+              <h3>Clean air zone &amp; ULEZ check</h3>
+              <p class="pf-what">See at a glance whether your car would pay in London's ULEZ, Birmingham and Bristol's clean air zones, or be fined in Scotland's low emission zones.</p>
+              <p class="pf-why"><strong>How it helps:</strong> no surprise penalty letters, and a clear answer when you're choosing whether to drive in or which car to buy next.</p>
+            </article>
+
+            <article class="pf">
+              <div class="pf-mock" aria-hidden="true">
+                <div class="mock-miles">
+                  <div><span class="mm-label">This tax year</span><b>470</b> business miles</div>
+                  <div><span class="mm-label">You can claim</span><b>£258.50</b></div>
+                  <span class="mm-rate">55p a mile, HMRC rate</span>
+                </div>
+              </div>
+              <h3>Business mileage log</h3>
+              <p class="pf-what">Log work trips in a couple of taps, by miles or odometer, and Livery adds up what you can claim at HMRC's approved rates for the tax year.</p>
+              <p class="pf-why"><strong>How it helps:</strong> every forgotten trip is money left behind. Download an HMRC-ready log for your self assessment or your employer's expenses.</p>
+            </article>
+
+            <article class="pf">
+              <div class="pf-mock" aria-hidden="true">
+                <div class="mock-share">
+                  <div class="sh-row"><span class="sh-av">A</span><span>You</span><span class="sh-role">Owner</span></div>
+                  <div class="sh-row"><span class="sh-av b">S</span><span>Sam</span><span class="sh-role">Can edit</span></div>
+                  <div class="sh-row"><span class="sh-av c">D</span><span>Dad</span><span class="sh-role">View only</span></div>
+                </div>
+              </div>
+              <h3>Shared garage</h3>
+              <p class="pf-what">Share a car with your partner, family or whoever drives it. Choose who can make changes and who can only look.</p>
+              <p class="pf-why"><strong>How it helps:</strong> one history, one set of reminders and one record of costs, and no more "did anyone book the MOT?".</p>
+            </article>
+          </div>
+
+          <div class="plus-soon">
+            <p class="plus-soon-title">Coming to Plus</p>
+            <div class="plus-soon-items">
+              <p><strong>Ask Livery, your AI mechanic.</strong> Describe a noise or snap a warning light and get likely causes, how urgent it is and rough costs, based on your car's own history.</p>
+              <p><strong>Smart nudges.</strong> A gentle weekly reminder to log fuel and costs, so your figures stay right without you thinking about it.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pricing" id="pricing" aria-labelledby="pricing-title">
+        <div class="wrap">
+          <div class="pricing-head">
+            <h2 id="pricing-title">Free for every car owner. Plus for the full picture.</h2>
+            <p class="lede">Start free and keep your car's whole history for as long as you like. Upgrade when you want Livery doing more of the work.</p>
+            <div class="billing" role="radiogroup" aria-label="Billing period" data-billing>
+              <button type="button" role="radio" aria-checked="false" data-period="monthly">Monthly</button>
+              <button type="button" role="radio" aria-checked="true" data-period="annual">Annual <span class="save">Save 30%</span></button>
+            </div>
+          </div>
+
+          <div class="plans">
+            <article class="plan">
+              <h3>Free</h3>
+              <p class="plan-for">Everything you need to own a car well.</p>
+              <p class="price"><span class="amt">£0</span><span class="per">forever</span></p>
+              <p class="price-note">No card needed.</p>
+              <a class="btn btn-quiet" href="#waitlist">Join the waitlist</a>
+              <ul class="plan-list">
+                <li>Up to 2 cars</li>
+                <li>Add a car by its plate, with MOT history and tax status</li>
+                <li>MOT, tax, insurance and service countdowns</li>
+                <li>Reminders before anything's due</li>
+                <li>Service history, mods and running costs</li>
+                <li>Documents and photos kept with each car</li>
+              </ul>
+            </article>
+
+            <article class="plan plan-plus">
+              <span class="plan-badge">Best value</span>
+              <h3><span class="plus-mark" aria-hidden="true">+</span> Plus</h3>
+              <p class="plan-for">For the full picture, and less admin.</p>
+              <p class="price" data-price>
+                <span class="amt" data-amt>£49.99</span><span class="per" data-per>a year</span>
+              </p>
+              <p class="price-note" data-note>That's £4.17 a month, billed yearly.</p>
+              <a class="btn btn-primary" href="#waitlist">Get the early access price</a>
+              <ul class="plan-list">
+                <li><strong>Everything in Free, plus:</strong></li>
+                <li>Unlimited cars</li>
+                <li>Receipt scanning</li>
+                <li>Fuel &amp; MPG tracking with drop alerts</li>
+                <li>MOT advisory tracker</li>
+                <li>Clean air zone &amp; ULEZ check</li>
+                <li>Business mileage log at HMRC rates</li>
+                <li>Shared garage for family and partners</li>
+                <li>Ask Livery AI mechanic, when it arrives</li>
+              </ul>
+            </article>
+          </div>
+
+          <aside class="founder" aria-label="Early access offer">
+            <div>
+              <p class="founder-title">Early access members: <span class="founder-price">£39.99 a year</span></p>
+              <p>Join through the waitlist and you get Plus for £39.99 a year instead of £49.99. Until launch, everything in Plus is free while we're in early access.</p>
+            </div>
+            <a class="btn btn-primary" href="#waitlist">Save my place</a>
+          </aside>
+
+          <div class="value">
+            <h3 class="value-title">What your money gets you</h3>
+            <div class="value-grid">
+              <div class="value-item"><b>One day</b><p>One day in London's ULEZ in a car that doesn't meet the standard costs £12.50. Avoid one and Plus has paid for two months.</p></div>
+              <div class="value-item"><b>91 miles</b><p>That's all the business driving it takes, at 55p a mile, to claim back a full year of Plus at £49.99.</p></div>
+              <div class="value-item"><b>Next MOT</b><p>A worn disc or tyre sorted before the test is a pass first time, without a retest or a second trip to the garage.</p></div>
+            </div>
+          </div>
+
+          <div class="compare">
+            <h3 class="compare-title">Compare Free and Plus</h3>
+            <div class="table-scroll">
+              <table>
+                <caption class="sr-only">What's included in Livery Free and Livery Plus</caption>
+                <thead>
+                  <tr>
+                    <th scope="col"><span class="sr-only">Feature</span></th>
+                    <th scope="col">Free</th>
+                    <th scope="col" class="col-plus">Plus</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="group"><th scope="rowgroup" colspan="3">Your garage</th></tr>
+                  <tr><th scope="row">Cars</th><td>Up to 2</td><td class="col-plus">Unlimited</td></tr>
+                  <tr><th scope="row">Add a car by its plate</th><td><span class="yes">Included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
+                  <tr><th scope="row">MOT history and tax status</th><td><span class="yes">Included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
+                  <tr><th scope="row">Full spec sheet</th><td><span class="yes">Included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
+                  <tr><th scope="row">Clean air zone &amp; ULEZ check</th><td><span class="no">Not included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
+
+                  <tr class="group"><th scope="rowgroup" colspan="3">Dates and reminders</th></tr>
+                  <tr><th scope="row">MOT, tax, insurance and service countdowns</th><td><span class="yes">Included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
+                  <tr><th scope="row">Reminders by email and in the app</th><td><span class="yes">Included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
+                  <tr><th scope="row">MOT advisory tracker</th><td><span class="no">Not included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
+                  <tr><th scope="row">Weekly nudges to log fuel and costs</th><td><span class="no">Not included</span></td><td class="col-plus"><span class="soon-tag">Coming soon</span></td></tr>
+
+                  <tr class="group"><th scope="rowgroup" colspan="3">Records</th></tr>
+                  <tr><th scope="row">Service and repair history</th><td><span class="yes">Included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
+                  <tr><th scope="row">Mods with power and torque gains</th><td><span class="yes">Included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
+                  <tr><th scope="row">Documents and photos</th><td><span class="yes">Included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
+                  <tr><th scope="row">Receipt scanning</th><td><span class="no">Not included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
+
+                  <tr class="group"><th scope="rowgroup" colspan="3">Money</th></tr>
+                  <tr><th scope="row">Running costs and cost per mile</th><td><span class="yes">Included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
+                  <tr><th scope="row">Export costs to a spreadsheet</th><td><span class="yes">Included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
+                  <tr><th scope="row">Fuel economy, MPG and drop alerts</th><td><span class="no">Not included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
+                  <tr><th scope="row">Business mileage log at HMRC rates</th><td><span class="no">Not included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
+
+                  <tr class="group"><th scope="rowgroup" colspan="3">People and help</th></tr>
+                  <tr><th scope="row">Share a car with family or a partner</th><td><span class="no">Not included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
+                  <tr><th scope="row">Ask Livery AI mechanic</th><td><span class="no">Not included</span></td><td class="col-plus"><span class="soon-tag">Coming soon</span></td></tr>
+
+                  <tr class="group"><th scope="rowgroup" colspan="3">Your data</th></tr>
+                  <tr><th scope="row">Private to you, stored in London</th><td><span class="yes">Included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
+                  <tr><th scope="row">Download everything or delete any time</th><td><span class="yes">Included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
+                  <tr><th scope="row">No adverts</th><td><span class="yes">Included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th scope="row">Price</th>
+                    <td>£0</td>
+                    <td class="col-plus"><span data-foot-price>£49.99 a year</span></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            <p class="compare-note">Cancel Plus whenever you like; your records stay in your garage. HMRC mileage rates and clean air zone charges checked November 2026.</p>
+          </div>
+        </div>
+      </section>
+
       <section class="privacy" aria-labelledby="privacy-title">
         <div class="wrap">
           <div>
@@ -555,7 +835,15 @@
             </details>
             <details>
               <summary>Is Livery free?</summary>
-              <p>Yes, Livery will be free to use. Later we may add optional extras for enthusiasts, and we'll always tell you before anything changes.</p>
+              <p>Yes. Livery Free covers up to two cars with MOT and tax lookups, key date countdowns, reminders, service history, mods, running costs and documents, for as long as you like. Livery Plus adds receipt scanning, fuel and MPG tracking, the MOT advisory tracker, clean air zone checks, a business mileage log and shared garages for £5.99 a month or £49.99 a year.</p>
+            </details>
+            <details>
+              <summary>What's the early access price?</summary>
+              <p>People who join through the waitlist get Plus for £39.99 a year instead of £49.99. While Livery is in early access, everything in Plus is free to use.</p>
+            </details>
+            <details>
+              <summary>Can I cancel Plus?</summary>
+              <p>Yes, whenever you like. Your cars and records stay in your garage; you just go back to the Free features.</p>
             </details>
             <details>
               <summary>What will you do with my email?</summary>
@@ -607,6 +895,8 @@
             <div>
               <h4>Livery</h4>
               <a href="/#features">Features</a>
+              <a href="/#plus">Livery Plus</a>
+              <a href="/#pricing">Pricing</a>
               <a href="/guides/">Guides</a>
               <a href="/#expect">What to expect</a>
               <a href="/#faq">Questions</a>
@@ -634,5 +924,6 @@
 
     <script src="/nav.js" defer></script>
     <script src="/main.js" defer></script>
+    <script src="/plans.js" defer></script>
   </body>
 </html>
