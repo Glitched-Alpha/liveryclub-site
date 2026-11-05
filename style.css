@@ -2159,3 +2159,12 @@ p {
 .compare td {
   white-space: nowrap;
 }
+.price .from {
+  align-self: center;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 600;
+}
+.price .from[hidden] {
+  display: none;
+}
