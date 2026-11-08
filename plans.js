@@ -15,18 +15,18 @@ const PRICES = {
   },
   annual: offerOn
     ? {
-        was: "£49.99",
-        amt: "£39.99",
-        per: "a year",
-        note: "Launch offer until 31 January, then £49.99. Your price stays as long as you're subscribed.",
-        foot: "£39.99 a year (launch offer)",
+        was: "£4.17",
+        amt: "£3.33",
+        per: "a month",
+        note: "Billed £39.99 yearly (usually £49.99). Launch offer until 31 January; your price stays while you're subscribed.",
+        foot: "£3.33 a month, billed £39.99 yearly",
       }
     : {
         was: "",
-        amt: "£49.99",
-        per: "a year",
-        note: "Works out at £4.17 a month. Save 30% on monthly.",
-        foot: "£49.99 a year",
+        amt: "£4.17",
+        per: "a month",
+        note: "Billed £49.99 yearly. Save 30% on monthly.",
+        foot: "£4.17 a month, billed £49.99 yearly",
       },
 };
 
