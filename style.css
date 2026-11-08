@@ -2228,3 +2228,55 @@ p {
     grid-template-columns: 1fr;
   }
 }
+
+/* Ask Livery mock and launch-offer price */
+.mock-ask {
+  display: grid;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.mock-ask p {
+  margin: 0;
+  max-width: 88%;
+  padding: 8px 12px;
+  border-radius: 14px;
+}
+.ask-q {
+  justify-self: end;
+  background: var(--leather);
+  color: var(--paper);
+  border-bottom-right-radius: 4px;
+}
+.ask-a {
+  justify-self: start;
+  background: var(--surface);
+  border-bottom-left-radius: 4px;
+}
+.ask-src {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+}
+.ask-typing {
+  display: flex;
+  gap: 4px;
+}
+.ask-typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--muted);
+  opacity: 0.6;
+}
+.price .was {
+  margin-right: 10px;
+  color: var(--muted);
+  font-size: 22px;
+  font-weight: 500;
+  text-decoration-thickness: 1.5px;
+}
+.price .was[hidden] {
+  display: none;
+}

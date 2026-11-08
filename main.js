@@ -19,6 +19,22 @@ if (plate) {
   });
 }
 
+// Launch: "Create my free garage" opens sign-up in the app, then Add vehicle
+// with the reg filled in. Without JavaScript the form still opens sign-up.
+for (const form of document.querySelectorAll("[data-start-form]")) {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const reg = String(new FormData(form).get("reg") || "")
+      .toUpperCase()
+      .replace(/[^A-Z0-9]/g, "")
+      .slice(0, 8);
+    const url = new URL("https://app.liveryclub.com/auth");
+    url.searchParams.set("mode", "signup");
+    if (reg) url.searchParams.set("redirect", `/garage/new?reg=${reg}`);
+    location.assign(url.toString());
+  });
+}
+
 for (const box of document.querySelectorAll("[data-wl]")) {
   const wl = box.querySelector("[data-wl-form]");
   const done = box.querySelector("[data-wl-done]");
