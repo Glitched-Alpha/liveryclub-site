@@ -99,21 +99,21 @@
           "name": "Livery Free",
           "price": "0",
           "priceCurrency": "GBP",
-          "availability": "https://schema.org/PreOrder"
+          "availability": "https://schema.org/InStock"
         },
         {
           "@type": "Offer",
           "name": "Livery Plus, monthly",
           "price": "5.99",
           "priceCurrency": "GBP",
-          "availability": "https://schema.org/PreOrder"
+          "availability": "https://schema.org/InStock"
         },
         {
           "@type": "Offer",
-          "name": "Livery Plus, annual",
-          "price": "49.99",
+          "name": "Livery Plus, annual (launch offer until 31 January 2027, then £49.99)",
+          "price": "39.99",
           "priceCurrency": "GBP",
-          "availability": "https://schema.org/PreOrder"
+          "availability": "https://schema.org/InStock"
         }
       ],
       "publisher": {
@@ -129,7 +129,7 @@
           "name": "When can I start using Livery?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Now. Livery is open on the web at app.liveryclub.com: sign up free and add your car by its plate. Apps for iPhone and Android are on the way, and your garage will already be inside."
+            "text": "Now. Livery is open to everyone at app.liveryclub.com: sign up free and add your car by its plate. It works in the browser on any phone or computer, and apps for iPhone and Android are coming soon to the App Store and Google Play, with your garage already inside."
           }
         },
         {
@@ -137,15 +137,15 @@
           "name": "Is Livery free?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Livery Free covers up to two cars with MOT and tax lookups, key date countdowns, reminders, service history, mods, running costs and documents, for as long as you like. Livery Plus adds receipt scanning, fuel and MPG tracking, the MOT advisory tracker, clean air zone checks, a business mileage log and shared garages and Ask Livery, your AI car helper, for £5.99 a month or £49.99 a year."
+            "text": "Yes. Livery Free covers up to two cars with MOT and tax lookups, key date countdowns, reminders, service history, mods, running costs and documents, for as long as you like. Livery Plus adds receipt scanning, fuel and MPG tracking, the MOT advisory tracker, clean air zone checks, a business mileage log and shared garages, unlimited cars and Ask Livery, your AI car helper, for £5.99 a month or £49.99 a year (£39.99 a year with the launch offer until 31 January)."
           }
         },
         {
           "@type": "Question",
-          "name": "I joined the waitlist. Do I get the early price?",
+          "name": "What's the launch offer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Everyone who joined the waitlist before launch pays £39.99 a year for Plus instead of £49.99, and keeps that price for as long as they stay subscribed. Sign up or sign in with the email you joined with."
+            "text": "Until the end of 31 January, yearly Plus is £39.99 instead of £49.99, and you keep that price for as long as you stay subscribed. After that, yearly goes back to £49.99. Monthly is £5.99. If you joined the waitlist before launch, the £39.99 price stays open to you after January too."
           }
         },
         {
@@ -217,6 +217,7 @@
           <a href="/guides/">Guides</a>
           <a href="/#expect">What to expect</a>
           <a href="/#faq">FAQ</a>
+          <a href="https://app.liveryclub.com/auth">Sign in</a>
         </nav>
         <a class="btn btn-primary" href="https://app.liveryclub.com/auth?mode=signup">Get started free</a>
         <button class="menu-btn" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu" data-menu-btn>
@@ -229,7 +230,7 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="wrap">
           <div>
-            <p class="soon"><span class="soon-dot" aria-hidden="true"></span>Now open on the web. Phone apps coming soon.</p>
+            <p class="soon"><span class="soon-dot" aria-hidden="true"></span>Now open to everyone. iPhone and Android apps coming soon.</p>
             <h1 id="hero-title">Every car. Every detail. One place.</h1>
             <p class="lede">
               Livery is the car ownership app that keeps everything about your car in one private
@@ -524,10 +525,24 @@
           <div class="plus-intro">
             <p class="eyebrow-pill"><span class="plus-mark" aria-hidden="true">+</span>Livery Plus</p>
             <h2 id="plus-title">For drivers who want their car to look after itself.</h2>
-            <p class="lede">Plus does the tedious bits for you: reads your receipts, watches your fuel economy, chases your MOT advisories, checks clean air zones, logs your work miles and keeps everyone who drives the car in step.</p>
+            <p class="lede">Plus does the tedious bits for you: answers questions about your car from its own records, reads your receipts and invoices, watches your fuel economy, chases your MOT advisories, checks clean air zones, logs your work miles and keeps everyone who drives the car in step. As many cars as you like.</p>
           </div>
 
           <div class="plus-grid">
+            <article class="pf">
+              <div class="pf-mock" aria-hidden="true">
+                <div class="mock-ask">
+                  <p class="ask-q">When did I last change the brake pads?</p>
+                  <p class="ask-a">14 March 2026 at 61,240 miles. £186, front and rear. <span class="ask-src">From your history</span></p>
+                  <p class="ask-q">There's a whine when I accelerate. What could it be?</p>
+                  <p class="ask-a ask-typing"><span></span><span></span><span></span></p>
+                </div>
+              </div>
+              <h3>Ask Livery</h3>
+              <p class="pf-what">Ask anything about your car in plain English. Livery answers straight from your own records, like when the cambelt was done or what you spent on tyres this year, and helps with noises, warning lights and paperwork. Add a photo, an invoice or a PDF and it reads that too.</p>
+              <p class="pf-why"><strong>How it helps:</strong> the answer to "when was that done?" in seconds, and a sensible second opinion before you speak to a garage.</p>
+            </article>
+
             <article class="pf">
               <div class="pf-mock" aria-hidden="true">
                 <div class="mock-receipt">
@@ -660,17 +675,18 @@
               <h3><span class="plus-mark" aria-hidden="true">+</span> Plus</h3>
               <p class="plan-for">For the full picture, and less admin.</p>
               <div class="billing" role="radiogroup" aria-label="Plus billing period" data-billing>
-                <button type="button" role="radio" aria-checked="true" data-period="annual">Annual <span class="save">Save 30%</span></button>
+                <button type="button" role="radio" aria-checked="true" data-period="annual">Annual <span class="save" data-save>Save 44%</span></button>
                 <button type="button" role="radio" aria-checked="false" data-period="monthly">Monthly</button>
               </div>
               <p class="price" data-price>
-                <span class="from" data-from>From</span><span class="amt" data-amt>£4.17</span><span class="per" data-per>a month</span>
+                <span class="from" data-from hidden>From</span><s class="was" data-was>£49.99</s><span class="amt" data-amt>£39.99</span><span class="per" data-per>a year</span>
               </p>
-              <p class="price-note" data-note>£49.99 billed yearly. Save 30% on monthly.</p>
+              <p class="price-note" data-note>Launch offer until 31 January, then £49.99. Your price stays as long as you're subscribed.</p>
               <a class="btn btn-primary" href="https://app.liveryclub.com/auth?mode=signup&amp;redirect=%2Fplus">Get Livery Plus</a>
               <p class="price-note plan-upgrade">Already have an account? <a href="https://app.liveryclub.com/plus">Upgrade in the app</a></p>
               <ul class="plan-list">
                 <li><strong>Everything in Free, plus:</strong></li>
+                <li>Ask Livery: answers from your records, and reads photos, invoices and PDFs</li>
                 <li>Unlimited cars</li>
                 <li>Receipt scanning</li>
                 <li>Fuel &amp; MPG tracking with drop alerts</li>
@@ -678,18 +694,17 @@
                 <li>Clean air zone &amp; ULEZ check</li>
                 <li>Business mileage log at HMRC rates</li>
                 <li>Shared garage for family and partners</li>
-                <li>Ask Livery, your AI car helper</li>
                 <li class="plan-soon">Coming soon: 2 full vehicle history checks a month and free valuations</li>
               </ul>
             </article>
           </div>
 
-          <aside class="founder" aria-label="Early access offer">
+          <aside class="founder" aria-label="Launch offer" data-offer>
             <div>
-              <p class="founder-title">Joined the waitlist? <span class="founder-price">£39.99 a year, for life</span></p>
-              <p>Everyone who joined the waitlist before launch pays £39.99 a year for Plus instead of £49.99, for as long as they stay subscribed. Use the same email you joined with and the price is waiting for you.</p>
+              <p class="founder-title">Launch offer: <span class="founder-price">£39.99 a year, locked in</span></p>
+              <p>Our little Christmas gift. Subscribe to yearly Plus before the end of 31 January and you pay £39.99 instead of £49.99, for as long as you stay subscribed. Monthly stays at £5.99.</p>
             </div>
-            <a class="btn btn-primary" href="https://app.liveryclub.com/auth?redirect=%2Fplus">Claim my price</a>
+            <a class="btn btn-primary" href="https://app.liveryclub.com/auth?mode=signup&amp;redirect=%2Fplus">Get the offer</a>
           </aside>
 
           <div class="value">
@@ -745,7 +760,7 @@
 
                   <tr class="group"><th scope="rowgroup" colspan="3">People and help</th></tr>
                   <tr><th scope="row">Share a car with family or a partner</th><td><span class="no">Not included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
-                  <tr><th scope="row">Ask Livery AI car helper</th><td><span class="no">Not included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
+                  <tr><th scope="row">Ask Livery: answers from your records, reads photos, invoices and PDFs</th><td><span class="no">Not included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
 
                   <tr class="group"><th scope="rowgroup" colspan="3">Your data</th></tr>
                   <tr><th scope="row">Private to you, stored in London</th><td><span class="yes">Included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
@@ -756,12 +771,12 @@
                   <tr>
                     <th scope="row">Price</th>
                     <td>£0</td>
-                    <td class="col-plus"><span data-foot-price>£4.17 a month, billed yearly</span></td>
+                    <td class="col-plus"><span data-foot-price>£39.99 a year (launch offer)</span></td>
                   </tr>
                 </tfoot>
               </table>
             </div>
-            <p class="compare-note">Cancel Plus whenever you like; your records stay in your garage. HMRC mileage rates and clean air zone charges checked November 2026.</p>
+            <p class="compare-note">Cancel Plus whenever you like to stop it renewing; your records stay in your garage. HMRC mileage rates and clean air zone charges checked November 2026.</p>
           </div>
         </div>
       </section>
@@ -807,8 +822,8 @@
               <p>Unlimited cars, Ask Livery, receipt scanning, fuel and MPG, and more, whenever you want them.</p>
             </li>
             <li class="stage">
-              <div class="stage-head">Phone apps</div>
-              <p>Livery for Android and iPhone, with your garage already inside.</p>
+              <div class="stage-head">Coming soon: App Store and Google Play</div>
+              <p>Livery for iPhone and Android, with your garage already inside. Until then, it works in your phone's browser; add it to your home screen.</p>
             </li>
             <li class="stage">
               <div class="stage-head">Reminders that find you</div>
@@ -824,15 +839,15 @@
           <div>
             <details>
               <summary>When can I start using Livery?</summary>
-              <p>Now. Livery is open on the web at app.liveryclub.com: sign up free and add your car by its plate. Apps for iPhone and Android are on the way, and your garage will already be inside.</p>
+              <p>Now. Livery is open to everyone at app.liveryclub.com: sign up free and add your car by its plate. It works in the browser on any phone or computer, and apps for iPhone and Android are coming soon to the App Store and Google Play, with your garage already inside.</p>
             </details>
             <details>
               <summary>Is Livery free?</summary>
-              <p>Yes. Livery Free covers up to two cars with MOT and tax lookups, key date countdowns, reminders, service history, mods, running costs and documents, for as long as you like. Livery Plus adds receipt scanning, fuel and MPG tracking, the MOT advisory tracker, clean air zone checks, a business mileage log and shared garages and Ask Livery, your AI car helper, for £5.99 a month or £49.99 a year.</p>
+              <p>Yes. Livery Free covers up to two cars with MOT and tax lookups, key date countdowns, reminders, service history, mods, running costs and documents, for as long as you like. Livery Plus adds receipt scanning, fuel and MPG tracking, the MOT advisory tracker, clean air zone checks, a business mileage log and shared garages, unlimited cars and Ask Livery, your AI car helper, for £5.99 a month or £49.99 a year (£39.99 a year with the launch offer until 31 January).</p>
             </details>
             <details>
-              <summary>I joined the waitlist. Do I get the early price?</summary>
-              <p>Everyone who joined the waitlist before launch pays £39.99 a year for Plus instead of £49.99, and keeps that price for as long as they stay subscribed. Sign up or sign in with the email you joined with.</p>
+              <summary>What's the launch offer?</summary>
+              <p>Until the end of 31 January, yearly Plus is £39.99 instead of £49.99, and you keep that price for as long as you stay subscribed. After that, yearly goes back to £49.99. Monthly is £5.99. If you joined the waitlist before launch, the £39.99 price stays open to you after January too.</p>
             </details>
             <details>
               <summary>Can I cancel Plus?</summary>
