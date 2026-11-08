@@ -2026,7 +2026,7 @@ p {
   border-radius: 28px;
   background: var(--surface);
   box-shadow: inset 0 0 0 1px var(--line);
-  overflow: clip;
+  overflow-x: auto;
 }
 .compare table {
   width: 100%;
@@ -2138,6 +2138,22 @@ p {
 }
 .compare td {
   white-space: nowrap;
+}
+@media (max-width: 560px) {
+  /* Let values wrap so all three columns fit a phone screen. */
+  .compare td {
+    white-space: normal;
+    width: 26%;
+    font-size: 14px;
+    line-height: 1.35;
+  }
+  .compare thead th:first-child {
+    width: auto;
+  }
+  .compare th[scope="row"] {
+    font-size: 14px;
+    line-height: 1.35;
+  }
 }
 .price .from {
   align-self: center;
@@ -2313,4 +2329,17 @@ p {
 .soon-dot {
   flex: none;
   margin-top: 7px;
+}
+
+@media (max-width: 360px) {
+  .compare th,
+  .compare td {
+    padding: 10px 6px;
+    font-size: 13px;
+    hyphens: auto;
+    overflow-wrap: anywhere;
+  }
+  .compare thead th {
+    font-size: 15px;
+  }
 }
