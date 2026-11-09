@@ -2510,3 +2510,122 @@ p {
     padding: 10px 12px;
   }
 }
+
+/* Plus: history check and valuation illustrations, price line, small print */
+.mock-check,
+.mock-val {
+  padding: 14px;
+  border-radius: 16px;
+  background: var(--surface);
+}
+.chk-chip {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgb(194 145 58 / 0.18);
+  color: var(--ochre);
+  font-weight: 600;
+}
+.mock-check ul {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.mock-check li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 5px 0;
+  border-top: 1px solid var(--line);
+}
+.mock-check .ok {
+  color: var(--moss);
+  font-weight: 600;
+}
+.mock-check .warn {
+  color: var(--ochre);
+  font-weight: 600;
+}
+.mv-label {
+  display: block;
+  color: var(--muted);
+}
+.mock-val b {
+  display: block;
+  font-size: 26px;
+  line-height: 1.15;
+}
+.mock-val dl {
+  margin: 8px 0 0;
+}
+.mock-val dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 5px 0;
+  border-top: 1px solid var(--line);
+}
+.mock-val dt {
+  color: var(--muted);
+}
+.mock-val dd {
+  margin: 0;
+  font-weight: 600;
+}
+.mv-note {
+  display: block;
+  margin-top: 8px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: rgb(194 145 58 / 0.14);
+  font-size: 12px;
+}
+.pf .pf-price {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--sand);
+  font-size: 15px;
+}
+.pf .pf-price strong {
+  color: var(--accent);
+}
+
+.small-print {
+  max-width: 760px;
+  margin: 40px auto 0;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.small-print h3 {
+  margin: 0 0 12px;
+  font-size: 17px;
+  color: var(--text);
+}
+.small-print dl {
+  margin: 0;
+}
+.small-print dl > div + div {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.small-print dt {
+  font-weight: 600;
+  color: var(--text);
+}
+.small-print dd {
+  margin: 4px 0 0;
+  line-height: 1.55;
+}
+.small-print a {
+  color: inherit;
+  text-decoration: underline;
+}
+@media (max-width: 560px) {
+  .small-print {
+    padding: 18px 16px;
+  }
+}

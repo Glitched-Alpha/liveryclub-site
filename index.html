@@ -11,7 +11,7 @@
     <title>Livery: the car ownership app for MOT, service history &amp; costs</title>
     <meta
       name="description"
-      content="Car ownership, organised. Livery keeps your MOT, tax and insurance dates, service history, mods and running costs in one private place. Free, with Plus for receipt scanning, MPG and more."
+      content="Car ownership, organised. Livery keeps your MOT, tax and insurance dates, service history, mods and running costs in one private place. Free, with Plus for history checks, valuations, MPG and more."
     />
     <link rel="canonical" href="https://liveryclub.com/" />
     <meta name="theme-color" content="#f2ede5" media="(prefers-color-scheme: light)" />
@@ -91,7 +91,9 @@
         "MOT advisory tracker (Plus)",
         "Clean air zone and ULEZ check (Plus)",
         "Business mileage log at HMRC rates (Plus)",
-        "Shared garage for family and partners (Plus)"
+        "Shared garage for family and partners (Plus)",
+        "Full vehicle history checks before you buy (3 a year with yearly Plus; £3.99 each with Plus, £5.99 without)",
+        "Monthly car valuation (Plus)"
       ],
       "offers": [
         {
@@ -110,8 +112,22 @@
         },
         {
           "@type": "Offer",
-          "name": "Livery Plus, annual (launch offer until 31 January 2027, then £49.99)",
+          "name": "Livery Plus, annual (launch offer until 31 January 2027, then £49.99), with 3 full vehicle history checks a year",
           "price": "39.99",
+          "priceCurrency": "GBP",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Full vehicle history check",
+          "price": "5.99",
+          "priceCurrency": "GBP",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Full vehicle history check, with Livery Plus",
+          "price": "3.99",
           "priceCurrency": "GBP",
           "availability": "https://schema.org/InStock"
         }
@@ -137,7 +153,15 @@
           "name": "Is Livery free?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Livery Free covers up to two cars with MOT and tax lookups, key date countdowns, reminders, service history, mods, running costs and documents, for as long as you like. Livery Plus adds receipt scanning, fuel and MPG tracking, the MOT advisory tracker, clean air zone checks, a business mileage log and shared garages, unlimited cars and Ask Livery, your AI car helper, for £5.99 a month or £49.99 a year (£39.99 a year with the launch offer until 31 January)."
+            "text": "Yes. Livery Free covers up to two cars with MOT and tax lookups, key date countdowns, reminders, service history, mods, running costs and documents, for as long as you like. Anyone can run a full vehicle history check on a car they're thinking of buying for £5.99. Livery Plus adds receipt scanning, fuel and MPG tracking, the MOT advisory tracker, clean air zone checks, a business mileage log and shared garages, unlimited cars, Ask Livery, your AI car helper, and a car valuation every month, for £5.99 a month or £49.99 a year (£39.99 a year with the launch offer until 31 January). Yearly Plus includes 3 history checks a year, and extra checks are £3.99 on any Plus plan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much is a full vehicle history check?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "£5.99 without Plus, or £3.99 with Livery Plus. Yearly Plus includes 3 checks every year of your subscription; monthly Plus doesn't include any, but extra checks are £3.99. A check looks for outstanding finance, police stolen records, insurance write-offs, plate and colour changes, previous keepers, mileage records and the MOT history, and gives you a clear verdict. Reports are saved to your account, so reopening one is free."
           }
         },
         {
@@ -525,7 +549,7 @@
           <div class="plus-intro">
             <p class="eyebrow-pill"><span class="plus-mark" aria-hidden="true">+</span>Livery Plus</p>
             <h2 id="plus-title">For drivers who want their car to look after itself</h2>
-            <p class="lede">Plus does the tedious bits for you: answers questions about your car from its own records, reads your receipts and invoices, watches your fuel economy, chases your MOT advisories, checks clean air zones, logs your work miles and keeps everyone who drives the car in step. As many cars as you like.</p>
+            <p class="lede">Plus does the tedious bits for you: answers questions about your car from its own records, reads your receipts and invoices, watches your fuel economy, chases your MOT advisories, checks clean air zones, logs your work miles and keeps everyone who drives the car in step. It checks a car's history before you buy and tells you what it's worth. As many cars as you like.</p>
           </div>
 
           <div class="plus-grid">
@@ -632,15 +656,44 @@
               <p class="pf-what">Share a car with your partner, family or whoever drives it. Choose who can make changes and who can only look.</p>
               <p class="pf-why"><strong>How it helps:</strong> one history, one set of reminders and one record of costs, and no more "did anyone book the MOT?".</p>
             </article>
+
+            <article class="pf">
+              <div class="pf-mock" aria-hidden="true">
+                <div class="mock-check">
+                  <span class="chk-chip">1 thing to look into</span>
+                  <ul>
+                    <li><span>Stolen</span><span class="ok">Not recorded</span></li>
+                    <li><span>Outstanding finance</span><span class="ok">None</span></li>
+                    <li><span>Write-off</span><span class="warn">Category N</span></li>
+                    <li><span>Mileage</span><span class="ok">Consistent</span></li>
+                  </ul>
+                </div>
+              </div>
+              <h3>Full vehicle history checks</h3>
+              <p class="pf-what">Before you buy, check any car for police stolen records, outstanding finance, insurance write-offs, scrapped or exported markers, plate and keeper changes and mileage records, all explained in plain English. Every report stays saved in your account.</p>
+              <p class="pf-price"><strong>3 checks a year included</strong> with yearly Plus. Then £3.99 each, or £5.99 without Plus.</p>
+              <p class="pf-why"><strong>How it helps:</strong> a car with finance owing can be taken back, and a hidden write-off costs you when you sell. One check before you pay is the cheapest protection there is.</p>
+            </article>
+
+            <article class="pf">
+              <div class="pf-mock" aria-hidden="true">
+                <div class="mock-val">
+                  <span class="mv-label">Private sale</span>
+                  <b>£8,450</b>
+                  <dl>
+                    <div><dt>Dealer</dt><dd>£9,995</dd></div>
+                    <div><dt>Part exchange</dt><dd>£7,100</dd></div>
+                  </dl>
+                  <span class="mv-note">Asking £8,995: £545 above a typical private sale</span>
+                </div>
+              </div>
+              <h3>Monthly car valuation</h3>
+              <p class="pf-what">See what a car is worth at its real mileage: as a private sale, from a dealer and in part exchange. Value your own car, or check the asking price of one you're thinking of buying.</p>
+              <p class="pf-price"><strong>1 valuation a month</strong> included with Plus.</p>
+              <p class="pf-why"><strong>How it helps:</strong> price your car right when you sell, know whether a seller's asking price is fair, and check your insurance covers what your car is really worth.</p>
+            </article>
           </div>
 
-          <div class="plus-soon">
-            <p class="plus-soon-title">Coming to Plus</p>
-            <div class="plus-soon-items">
-              <p><strong>Full vehicle history checks, two a month.</strong> Outstanding finance, write-offs, stolen markers, plate changes and mileage records, before you buy or for your own car.</p>
-              <p><strong>Free valuations.</strong> Know what your car is worth today, so you can price it right when you sell or check your insurance cover.</p>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -666,6 +719,7 @@
                 <li>Reminders before anything's due</li>
                 <li>Service history, mods and running costs</li>
                 <li>Documents and photos kept with each car</li>
+                <li>Full history checks before you buy, £5.99 each</li>
                 <li class="plan-soon">Coming soon: smart nudges to log fuel and costs</li>
               </ul>
             </article>
@@ -680,9 +734,9 @@
               <p class="price" data-price>
                 <span class="from" data-from hidden>From</span><s class="was" data-was>£4.17</s><span class="amt" data-amt>£3.33</span><span class="per" data-per>a month</span>
               </p>
-              <p class="price-note" data-note>Billed £39.99 yearly (usually £49.99). Launch offer until 31 January; your price stays while you're subscribed.</p>
+              <p class="price-note" data-note>Billed £39.99 yearly (usually £49.99), with 3 full history checks a year included. Launch offer until 31 January; your price stays while you're subscribed.</p>
               <a class="btn btn-primary" href="https://app.liveryclub.com/auth?mode=signup&amp;redirect=%2Fplus">Get Livery Plus</a>
-              <p class="price-note plan-upgrade">Already have an account? <a href="https://app.liveryclub.com/plus">Upgrade in the app</a></p>
+              <p class="price-note plan-upgrade">Already have an account? <a href="https://app.liveryclub.com/plus">Upgrade in the app</a> · <a href="#small-print">What's included, exactly</a></p>
               <ul class="plan-list">
                 <li><strong>Everything in Free, plus:</strong></li>
                 <li>Ask Livery: answers from your records, and reads photos, invoices and PDFs</li>
@@ -693,7 +747,8 @@
                 <li>Clean air zone &amp; ULEZ check</li>
                 <li>Business mileage log at HMRC rates</li>
                 <li>Shared garage for family and partners</li>
-                <li class="plan-soon">Coming soon: 2 full vehicle history checks a month and free valuations</li>
+                <li>3 full history checks a year on yearly Plus, then £3.99 each</li>
+                <li>A car valuation every month</li>
               </ul>
             </article>
           </div>
@@ -701,7 +756,7 @@
           <aside class="founder" aria-label="Launch offer" data-offer>
             <div>
               <p class="founder-title">Launch offer: <span class="founder-price">£3.33 a month, billed yearly</span></p>
-              <p>Our festive launch offer. Subscribe to yearly Plus by 31 January and pay £39.99 a year (£3.33 a month) instead of £49.99, for as long as you remain subscribed. Monthly remains £5.99.</p>
+              <p>Our festive launch offer. Subscribe to yearly Plus by 31 January and pay £39.99 a year (£3.33 a month) instead of £49.99, for as long as you remain subscribed. It includes 3 full history checks every year, worth £17.97 on their own. Monthly remains £5.99.</p>
             </div>
             <a class="btn btn-primary" href="https://app.liveryclub.com/auth?mode=signup&amp;redirect=%2Fplus">Get the offer</a>
           </aside>
@@ -711,7 +766,7 @@
             <div class="value-grid">
               <div class="value-item"><b>One day</b><p>One day in London's ULEZ in a car that doesn't meet the standard costs £12.50. Avoid one and Plus has paid for two months.</p></div>
               <div class="value-item"><b>91 miles</b><p>That's all the business driving it takes, at 55p a mile, to claim back a full year of Plus at £49.99.</p></div>
-              <div class="value-item"><b>Next MOT</b><p>A worn disc or tyre sorted before the test is a pass first time, without a retest or a second trip to the garage.</p></div>
+              <div class="value-item"><b>£17.97</b><p>What the 3 full history checks in yearly Plus would cost at £5.99 each. That's almost half of a £39.99 year back before you've used anything else.</p></div>
             </div>
           </div>
 
@@ -754,8 +809,9 @@
                   <tr><th scope="row">Business mileage log at HMRC rates</th><td><span class="no">Not included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
 
                   <tr class="group"><th scope="rowgroup" colspan="3">Buying and selling</th></tr>
-                  <tr><th scope="row">Full vehicle history checks</th><td><span class="no">Not included</span></td><td class="col-plus"><span class="soon-tag">2 a month, soon</span></td></tr>
-                  <tr><th scope="row">Car valuations</th><td><span class="no">Not included</span></td><td class="col-plus"><span class="soon-tag">Coming soon</span></td></tr>
+                  <tr><th scope="row">Full vehicle history checks</th><td>£5.99 each</td><td class="col-plus">3 a year included on yearly Plus, then £3.99 each</td></tr>
+                  <tr><th scope="row">Saved history reports, free to reopen</th><td><span class="yes">Included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
+                  <tr><th scope="row">Car valuations</th><td><span class="no">Not included</span></td><td class="col-plus">1 a month</td></tr>
 
                   <tr class="group"><th scope="rowgroup" colspan="3">People and help</th></tr>
                   <tr><th scope="row">Share a car with family or a partner</th><td><span class="no">Not included</span></td><td class="col-plus"><span class="yes">Included</span></td></tr>
@@ -776,6 +832,28 @@
               </table>
             </div>
             <p class="compare-note">Cancel Plus whenever you like to stop it renewing; your records stay in your garage. HMRC mileage rates and clean air zone charges checked November 2026.</p>
+          </div>
+
+          <div class="small-print" id="small-print">
+            <h3>The small print</h3>
+            <dl>
+              <div>
+                <dt>Livery Plus</dt>
+                <dd>£5.99 a month, or £49.99 a year. Launch offer: £39.99 a year for anyone who subscribes to yearly Plus by the end of 31 January 2027, kept for as long as you stay subscribed (people who joined the waitlist before launch can still get it after January). Prices shown are the total you pay. Plus starts as soon as you subscribe, so payments aren't refundable; cancel any time to stop it renewing.</dd>
+              </div>
+              <div>
+                <dt>Full vehicle history checks</dt>
+                <dd>Yearly Plus, including the launch offer, includes 3 checks in each year of your subscription. Unused included checks don't carry over to the next year. Monthly Plus doesn't include checks. Extra checks cost £3.99 each with any Plus plan, and £5.99 each without Plus. Checks you buy don't expire. A check is run straight away when you ask for it, so it isn't refundable, but if it can't be completed you keep it to use again. Reopening a saved report is free. Single checks are bought on the web app.</dd>
+              </div>
+              <div>
+                <dt>Valuations</dt>
+                <dd>Livery Plus includes 1 valuation a month per account, for any car, renewing on the 1st of each month (UK time). Each car can be valued once every 30 days. Unused valuations don't carry over. Valuations aren't available on Livery Free.</dd>
+              </div>
+              <div>
+                <dt>What reports and valuations are</dt>
+                <dd>History checks show what police, finance, insurance and DVLA records said when the check ran, and records can be incomplete or out of date. Valuations are estimates from market data for a typical car of that model and mileage. Neither replaces seeing the car and checking its paperwork. See section 16 of our <a href="https://app.liveryclub.com/terms">Terms of Service</a>.</dd>
+              </div>
+            </dl>
           </div>
         </div>
       </section>
@@ -889,7 +967,11 @@
             </details>
             <details>
               <summary>Is Livery free?</summary>
-              <p>Yes. Livery Free covers up to two cars with MOT and tax lookups, key date countdowns, reminders, service history, mods, running costs and documents, for as long as you like. Livery Plus adds receipt scanning, fuel and MPG tracking, the MOT advisory tracker, clean air zone checks, a business mileage log and shared garages, unlimited cars and Ask Livery, your AI car helper, for £5.99 a month or £49.99 a year (£39.99 a year with the launch offer until 31 January).</p>
+              <p>Yes. Livery Free covers up to two cars with MOT and tax lookups, key date countdowns, reminders, service history, mods, running costs and documents, for as long as you like. Anyone can run a full vehicle history check on a car they're thinking of buying for £5.99. Livery Plus adds receipt scanning, fuel and MPG tracking, the MOT advisory tracker, clean air zone checks, a business mileage log and shared garages, unlimited cars, Ask Livery, your AI car helper, and a car valuation every month, for £5.99 a month or £49.99 a year (£39.99 a year with the launch offer until 31 January). Yearly Plus includes 3 history checks a year, and extra checks are £3.99 on any Plus plan.</p>
+            </details>
+            <details>
+              <summary>How much is a full vehicle history check?</summary>
+              <p>£5.99 without Plus, or £3.99 with Livery Plus. Yearly Plus includes 3 checks every year of your subscription; monthly Plus doesn't include any, but extra checks are £3.99. A check looks for outstanding finance, police stolen records, insurance write-offs, plate and colour changes, previous keepers, mileage records and the MOT history, and gives you a clear verdict. Reports are saved to your account, so reopening one is free.</p>
             </details>
             <details>
               <summary>What's the launch offer?</summary>

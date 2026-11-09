@@ -10,7 +10,7 @@ const PRICES = {
     was: "",
     amt: "£5.99",
     per: "a month",
-    note: "Billed monthly. Cancel any time to stop it renewing.",
+    note: "Billed monthly. History checks £3.99 each. Cancel any time to stop it renewing.",
     foot: "£5.99 a month",
   },
   annual: offerOn
@@ -18,14 +18,14 @@ const PRICES = {
         was: "£4.17",
         amt: "£3.33",
         per: "a month",
-        note: "Billed £39.99 yearly (usually £49.99). Launch offer until 31 January; your price stays while you're subscribed.",
+        note: "Billed £39.99 yearly (usually £49.99), with 3 full history checks a year included. Launch offer until 31 January; your price stays while you're subscribed.",
         foot: "£3.33 a month, billed £39.99 yearly",
       }
     : {
         was: "",
         amt: "£4.17",
         per: "a month",
-        note: "Billed £49.99 yearly. Save 30% on monthly.",
+        note: "Billed £49.99 yearly, with 3 full history checks a year included. Save 30% on monthly.",
         foot: "£4.17 a month, billed £49.99 yearly",
       },
 };
