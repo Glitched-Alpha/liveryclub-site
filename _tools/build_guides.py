@@ -1,12 +1,51 @@
-"""Builds the /guides pages, reusing the homepage header and footer. Run after editing them."""
-import re, json, pathlib
-root = pathlib.Path(__file__).resolve().parent.parent  # run: python3 _tools/build_guides.py
-idx = (root/"index.html").read_text()
+"""Builds every page under /guides, reusing the homepage header, footer and CSP.
+
+Run after editing a guide or the homepage header/footer:
+    python3 _tools/build_guides.py
+
+Guide content lives in _tools/guides_content.py. Each guide gets: canonical URL,
+Open Graph tags, Article + BreadcrumbList (+ FAQPage) structured data, a contents
+list, related guides, and a sitemap entry. Links into the app are plain (no
+tracking parameters), so Google sees one URL per page.
+"""
+import html
+import json
+import pathlib
+import re
+import sys
+
+root = pathlib.Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from guides_content import GUIDES  # noqa: E402
+
+SITE = "https://liveryclub.com"
+APP = "https://app.liveryclub.com"
+SIGNUP = f"{APP}/auth?mode=signup"
+AUTHOR = {"@type": "Person", "name": "Aniket Chakraborty", "jobTitle": "Founder, Livery"}
+ORG = {"@type": "Organization", "@id": f"{SITE}/#org", "name": "Livery", "url": f"{SITE}/"}
+
+idx = (root / "index.html").read_text()
 header = re.search(r'    <header class="site-header">.*?</header>', idx, re.S).group(0)
 footer = re.search(r'    <footer class="site-footer">.*?</footer>', idx, re.S).group(0)
 csp = re.search(r'<meta\s+http-equiv="Content-Security-Policy".*?/>', idx, re.S).group(0)
 
-def page(path, title, desc, body, ld):
+MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August",
+          "September", "October", "November", "December"]
+
+
+def long_date(iso):
+    y, m, d = (int(x) for x in iso.split("-"))
+    return f"{d} {MONTHS[m - 1]} {y}"
+
+
+def crumbs(items):
+    return {"@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": i + 1, "name": n, "item": SITE + u}
+        for i, (n, u) in enumerate(items)]}
+
+
+def page(path, title, desc, body, ld, og_type="article"):
+    t, d = html.escape(title, quote=True), html.escape(desc, quote=True)
     return f'''<!doctype html>
 <html lang="en-GB">
   <head>
@@ -14,20 +53,20 @@ def page(path, title, desc, body, ld):
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     {csp}
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <title>{title}</title>
-    <meta name="description" content="{desc}" />
-    <link rel="canonical" href="https://liveryclub.com{path}" />
+    <title>{t}</title>
+    <meta name="description" content="{d}" />
+    <link rel="canonical" href="{SITE}{path}" />
     <meta name="theme-color" content="#f2ede5" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#1c1814" media="(prefers-color-scheme: dark)" />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-    <meta property="og:type" content="article" />
+    <meta property="og:type" content="{og_type}" />
     <meta property="og:site_name" content="Livery" />
     <meta property="og:locale" content="en_GB" />
-    <meta property="og:title" content="{title}" />
-    <meta property="og:description" content="{desc}" />
-    <meta property="og:url" content="https://liveryclub.com{path}" />
-    <meta property="og:image" content="https://liveryclub.com/assets/og.jpg" />
+    <meta property="og:title" content="{t}" />
+    <meta property="og:description" content="{d}" />
+    <meta property="og:url" content="{SITE}{path}" />
+    <meta property="og:image" content="{SITE}/assets/og.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="preload" href="/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin />
@@ -51,95 +90,156 @@ def page(path, title, desc, body, ld):
 </html>
 '''
 
-ORG = {"@type": "Organization", "@id": "https://liveryclub.com/#org", "name": "Livery", "url": "https://liveryclub.com/"}
-crumbs = lambda items: {"@type": "BreadcrumbList", "itemListElement": [
-    {"@type": "ListItem", "position": i+1, "name": n, "item": "https://liveryclub.com"+u} for i,(n,u) in enumerate(items)]}
 
-# ── Guide: MOT history ──────────────────────────────────────────────
-mot_path = "/guides/check-mot-history/"
-mot_title = "How to check your car's MOT history (and what advisories mean)"
-mot_desc = "Check any car's MOT history free in under a minute. What dangerous, major, minor and advisory items mean, and what to look for before you buy."
-mot_body = '''      <article class="article wrap">
+def words(s):
+    return len(re.sub(r"<[^>]+>", " ", s).split())
+
+
+def guide_url(g):
+    return f"/guides/{g['slug']}/"
+
+
+def related_block(g):
+    by_slug = {x["slug"]: x for x in GUIDES}
+    cards = []
+    for slug in g["related"]:
+        r = by_slug[slug]
+        cards.append(f'''          <a class="guide-card" href="{guide_url(r)}">
+            <p class="eyebrow">{r["topic"]}</p>
+            <h3>{r["h1"]}</h3>
+            <span class="guide-more">Read the guide →</span>
+          </a>''')
+    return ('''        <section class="related" aria-labelledby="related-title">
+          <h2 id="related-title">Keep reading</h2>
+          <div class="guide-list">
+''' + "\n".join(cards) + '''
+          </div>
+        </section>''')
+
+
+def faq_block(g):
+    if not g.get("faq"):
+        return ""
+    items = "\n".join(
+        f'''          <details>
+            <summary>{q}</summary>
+            <p>{a}</p>
+          </details>''' for q, a in g["faq"])
+    return f'''        <section class="article-faq" aria-labelledby="faq-title">
+          <h2 id="faq-title">Questions people ask</h2>
+{items}
+        </section>'''
+
+
+def toc_block(body):
+    heads = re.findall(r'<h2 id="([^"]+)">(.*?)</h2>', body)
+    if len(heads) < 4:
+        return ""
+    lis = "\n".join(f'            <li><a href="#{i}">{re.sub(r"<[^>]+>", "", t)}</a></li>' for i, t in heads)
+    return f'''        <nav class="toc" aria-label="On this page">
+          <p>On this page</p>
+          <ol>
+{lis}
+          </ol>
+        </nav>'''
+
+
+def build_guide(g):
+    path = guide_url(g)
+    body = g["body"].strip("\n")
+    faq = faq_block(g)
+    minutes = max(3, round((words(body) + words(faq)) / 230))
+    sources = "; ".join(f'<a href="{u}" rel="noopener">{n}</a>' for n, u in g["sources"])
+    cta = g.get("cta") or {
+        "title": "Your car, organised.",
+        "text": "Livery is free for up to two cars. Add a number plate and your MOT, tax, MOT history and key dates are set up in seconds, with a reminder before anything's due.",
+        "button": "Create my free garage",
+        "href": SIGNUP,
+    }
+    article = f'''      <article class="article wrap">
         <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Livery</a> <span aria-hidden="true">/</span> <a href="/guides/">Guides</a></nav>
-        <p class="eyebrow">Guide · 4 min read</p>
-        <h1>How to check your car's MOT history, and what it's actually telling you</h1>
-        <p class="article-meta">By Aniket Chakraborty, founder of Livery · Updated <time datetime="2026-11-04">4 November 2026</time></p>
+        <p class="eyebrow">{g["topic"]} · {minutes} min read</p>
+        <h1>{g["h1"]}</h1>
+        <p class="article-meta">By Aniket Chakraborty, founder of Livery · Updated <time datetime="{g["updated"]}">{long_date(g["updated"])}</time></p>
 
-        <p class="article-lede">Your car's MOT history is one of the most useful free records there is. It shows every test the car has had, what it failed on, what the tester flagged and the mileage each time. Here's how to find it and how to read it.</p>
+        <p class="article-lede">{g["lede"]}</p>
 
-        <h2 id="how">How to check it</h2>
-        <div class="steps-pair">
-          <div class="step-card">
-            <h3>Quick one-off check</h3>
-            <p>Go to <a href="https://www.gov.uk/check-mot-history" rel="noopener">Check the MOT history of a vehicle</a> on GOV.UK and enter the registration. It's free, and you don't need to own the car.</p>
-          </div>
-          <div class="step-card step-card-livery">
-            <h3>Keep it with everything else</h3>
-            <p>In Livery, add your car by its plate and its MOT history sits alongside your MOT and tax reminders, service records and receipts, so you never have to look it up again.</p>
-            <a class="btn btn-primary" href="/?ref=guide-mot#waitlist">Join the waitlist</a>
-            <p class="small">Livery is opening soon.</p>
-          </div>
-        </div>
-        <p>For cars in England, Scotland and Wales you'll see results back to 2005. In Northern Ireland, results go back to 2017. To download the actual certificates or see which garage did each test (England, Scotland and Wales only), you'll also need the 11-digit reference number from the V5C logbook.</p>
+{toc_block(body)}
 
-        <h2 id="results">What the results mean</h2>
-        <p>Since May 2018, problems found at an MOT are sorted into categories:</p>
-        <dl class="defects">
-          <div class="defect defect-dangerous"><dt>Dangerous</dt><dd>An immediate risk to road safety or a serious environmental issue. It's a fail, and the car shouldn't be driven until it's fixed.</dd></div>
-          <div class="defect defect-major"><dt>Major</dt><dd>Could affect safety, other road users or the environment. It's a fail, and it needs repairing straight away.</dd></div>
-          <div class="defect defect-minor"><dt>Minor</dt><dd>Little or no effect on safety. The car passes, but get it repaired as soon as you can.</dd></div>
-          <div class="defect defect-advisory"><dt>Advisory</dt><dd>Something that could get worse. The car passes, but keep an eye on it.</dd></div>
-        </dl>
-        <p>Advisories are where most people get caught out. A tyre "close to the legal limit" or brake pads "wearing thin" this year is often next year's fail.</p>
+{body}
 
-        <h2 id="buying">What to look for when buying a used car</h2>
-        <ul>
-          <li><strong>Mileage that goes backwards, or jumps oddly.</strong> Each test records the mileage, so a drop between tests is a big warning sign.</li>
-          <li><strong>The same advisory year after year.</strong> Repeated "corrosion" or "oil leak" notes suggest a problem that's never been fixed.</li>
-          <li><strong>Gaps.</strong> A missing year can mean the car was off the road, or driven without an MOT. Ask the seller why.</li>
-          <li><strong>Lots of fails on the same item.</strong> Suspension or brake parts failing again and again can point to a bigger issue.</li>
-        </ul>
-
-        <h2 id="record">Keep your own record</h2>
-        <p>The MOT history only covers the test itself. It won't show the services, repairs and receipts in between, and those are what prove a car has been looked after.</p>
-        <p>Livery keeps it all together: your MOT and tax dates with a reminder before they're due, your car's MOT history, and every service, repair and receipt in one history file.</p>
+{faq}
 
         <aside class="article-cta">
-          <h2>Be one of the first in.</h2>
-          <p>Livery is opening soon, by invite. Join the waitlist and add your plate, and your car will be waiting in your garage.</p>
-          <a class="btn btn-primary" href="/?ref=guide-mot#waitlist">Join the waitlist</a>
+          <h2>{cta["title"]}</h2>
+          <p>{cta["text"]}</p>
+          <a class="btn btn-primary" href="{html.escape(cta["href"], quote=True)}">{cta["button"]}</a>
         </aside>
 
-        <p class="article-sources">Sources: <a href="https://www.gov.uk/check-mot-history" rel="noopener">GOV.UK, Check the MOT history of a vehicle</a>; <a href="https://www.gov.uk/government/publications/mot-changes-from-may-2018-guidance-for-mot-testers/overview-of-mot-changes-from-may-2018" rel="noopener">GOV.UK, MOT changes from May 2018</a>.</p>
-      </article>'''
-mot_ld = {"@context": "https://schema.org", "@graph": [
-  {"@type": "Article", "@id": "https://liveryclub.com"+mot_path+"#article", "headline": mot_title, "description": mot_desc,
-   "inLanguage": "en-GB", "datePublished": "2026-11-04", "dateModified": "2026-11-04",
-   "author": {"@type": "Person", "name": "Aniket Chakraborty", "jobTitle": "Founder, Livery"},
-   "publisher": ORG, "mainEntityOfPage": "https://liveryclub.com"+mot_path, "image": "https://liveryclub.com/assets/og.jpg"},
-  crumbs([("Livery","/"),("Guides","/guides/"),("Check MOT history", mot_path)])]}
-(root/"guides/check-mot-history/index.html").write_text(page(mot_path, mot_title+" | Livery", mot_desc, mot_body, mot_ld))
+        <p class="article-sources">Sources: {sources}. Rules and prices were checked on {long_date(g["updated"])} and can change, so check the official source before acting on them.</p>
 
-# ── Guides index ───────────────────────────────────────────────────
-g_path = "/guides/"
-g_title = "Car ownership guides | Livery"
-g_desc = "Plain-English guides to owning a car in the UK: MOT history, service records, modifications and running costs."
-g_body = '''      <section class="article wrap">
+{related_block(g)}
+      </article>'''
+
+    graph = [
+        {"@type": "Article", "@id": f"{SITE}{path}#article", "headline": g["h1"],
+         "description": g["desc"], "inLanguage": "en-GB",
+         "datePublished": g["published"], "dateModified": g["updated"],
+         "author": AUTHOR, "publisher": ORG, "mainEntityOfPage": f"{SITE}{path}",
+         "image": f"{SITE}/assets/og.jpg"},
+        crumbs([("Livery", "/"), ("Guides", "/guides/"), (g["crumb"], path)]),
+    ]
+    if g.get("faq"):
+        graph.append({"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": re.sub(r"<[^>]+>", "", q),
+             "acceptedAnswer": {"@type": "Answer", "text": re.sub(r"<[^>]+>", "", a)}}
+            for q, a in g["faq"]]})
+    out = root / "guides" / g["slug"] / "index.html"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(page(path, g["title"], g["desc"], article, {"@context": "https://schema.org", "@graph": graph}))
+    return minutes
+
+
+def build_index(minutes):
+    cards = "\n".join(f'''          <a class="guide-card" href="{guide_url(g)}">
+            <p class="eyebrow">{g["topic"]} · {minutes[g["slug"]]} min read</p>
+            <h2>{g["h1"]}</h2>
+            <p>{g["card"]}</p>
+            <span class="guide-more">Read the guide →</span>
+          </a>''' for g in GUIDES)
+    title = "Car ownership guides for UK drivers | Livery"
+    desc = ("Plain-English guides to buying and owning a car in the UK: used car checks, Cat S and N, "
+            "clocking, MOT and tax dates, ULEZ and service history.")
+    body = f'''      <section class="article wrap">
         <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Livery</a></nav>
         <p class="eyebrow">Guides</p>
         <h1>Car ownership, explained.</h1>
-        <p class="article-lede">Plain-English guides to the parts of owning a car that are easy to forget, from MOTs to service history.</p>
+        <p class="article-lede">Plain-English guides to buying, running and looking after a car in the UK, from checking a used car's past to never missing an MOT again.</p>
         <div class="guide-list">
-          <a class="guide-card" href="/guides/check-mot-history/">
-            <p class="eyebrow">MOT · 4 min read</p>
-            <h2>How to check your car's MOT history, and what it's actually telling you</h2>
-            <p>Find any car's MOT history for free, what dangerous, major, minor and advisory items mean, and what to look for before you buy.</p>
-            <span class="guide-more">Read the guide →</span>
-          </a>
+{cards}
         </div>
       </section>'''
-g_ld = {"@context": "https://schema.org", "@graph": [
-  {"@type": "CollectionPage", "name": g_title, "url": "https://liveryclub.com"+g_path, "inLanguage": "en-GB", "publisher": ORG},
-  crumbs([("Livery","/"),("Guides", g_path)])]}
-(root/"guides/index.html").write_text(page(g_path, g_title, g_desc, g_body, g_ld))
-print("ok")
+    ld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "CollectionPage", "name": title, "url": f"{SITE}/guides/", "inLanguage": "en-GB",
+         "publisher": ORG,
+         "hasPart": [{"@type": "Article", "headline": g["h1"], "url": SITE + guide_url(g)} for g in GUIDES]},
+        crumbs([("Livery", "/"), ("Guides", "/guides/")])]}
+    (root / "guides" / "index.html").write_text(page("/guides/", title, desc, body, ld, og_type="website"))
+
+
+def build_sitemap():
+    sm = root / "sitemap.xml"
+    text = sm.read_text()
+    keep = [m for m in re.findall(r"  <url>.*?</url>\n", text, re.S) if "/guides/" not in m]
+    latest = max(g["updated"] for g in GUIDES)
+    entries = keep + [f"  <url><loc>{SITE}/guides/</loc><lastmod>{latest}</lastmod></url>\n"] + [
+        f"  <url><loc>{SITE}{guide_url(g)}</loc><lastmod>{g['updated']}</lastmod></url>\n" for g in GUIDES]
+    sm.write_text('<?xml version="1.0" encoding="UTF-8"?>\n'
+                  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+                  + "".join(entries) + "</urlset>\n")
+
+
+minutes = {g["slug"]: build_guide(g) for g in GUIDES}
+build_index(minutes)
+build_sitemap()
+print("built", len(GUIDES), "guides:", ", ".join(f"{s} ({m} min)" for s, m in minutes.items()))
