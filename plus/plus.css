@@ -1,0 +1,16 @@
+/* Livery Plus page (liveryclub.com/plus): builds on /style.css. */
+.pp-hero { padding: clamp(48px, 8vw, 104px) 0 clamp(24px, 4vw, 48px); text-align: center; }
+.pp-hero .wrap { max-width: 860px; }
+.pp-hero h1 { font-family: var(--serif, "Fraunces", Georgia, serif); font-weight: 400; font-size: clamp(40px, 6.4vw, 72px); line-height: 1.04; letter-spacing: -0.01em; margin: 18px 0 18px; }
+.pp-hero .lede { margin: 0 auto; max-width: 680px; }
+.pp-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 28px; }
+.pp-small { margin-top: 16px; font-size: 14px; color: var(--muted, #6b5f55); }
+.pp-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent, #8e5e3b); margin: 0 0 10px; }
+.pp-eyebrow .plus-mark { font-size: 15px; }
+.pp-also { text-align: center; margin-top: 40px; color: var(--muted, #6b5f55); }
+.pp-faq { padding: clamp(48px, 7vw, 96px) 0; }
+.pp-faq h2 { text-align: center; font-family: var(--serif, "Fraunces", Georgia, serif); font-weight: 400; font-size: clamp(30px, 4.4vw, 44px); margin: 0 0 32px; }
+.pp-faq-grid { display: grid; gap: 24px 40px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); max-width: 980px; margin: 0 auto; }
+.pp-faq-grid h3 { font-size: 18px; margin: 0 0 6px; }
+.pp-faq-grid p { margin: 0; color: var(--muted, #6b5f55); line-height: 1.55; }
+.pp-end { margin-top: 44px; }
