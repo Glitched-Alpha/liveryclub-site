@@ -2629,3 +2629,34 @@ p {
     padding: 18px 16px;
   }
 }
+
+/* Google Play badge (official artwork, unaltered) */
+.store-row {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.closing .store-row {
+  justify-content: center;
+}
+.store-badge {
+  display: inline-block;
+  line-height: 0;
+  border-radius: 8px;
+}
+.store-badge img {
+  display: block;
+  height: 48px;
+  width: auto;
+}
+.store-badge:focus-visible {
+  outline: 2px solid var(--leather);
+  outline-offset: 3px;
+}
+.store-badge-sm {
+  margin-top: 14px;
+}
+.store-badge-sm img {
+  height: 40px;
+}
